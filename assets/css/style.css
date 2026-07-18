@@ -213,7 +213,7 @@ body {
 .hero-name {
   font-family: var(--font-serif);
   font-size: 2.35rem;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1.25;
   color: var(--text-primary);
 }
@@ -419,14 +419,15 @@ body {
 }
 
 .btn-primary {
-  background-color: var(--dark-amethyst);
-  color: white;
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  border: 1px solid var(--border-color);
 }
 
 .btn-primary:hover {
-  background-color: var(--pacific-blue);
-  color: var(--dark-amethyst);
-  transform: translateY(-1px);
+  background-color: var(--btn-hover-bg);
+  color: var(--btn-hover-text);
+  transform: translateY(-2px);
 }
 
 .btn-outline {
@@ -436,8 +437,8 @@ body {
 }
 
 .btn-outline:hover {
-  border-color: var(--pacific-blue);
-  color: var(--pacific-blue);
+  border-color: var(--accent-secondary);
+  color: var(--accent-secondary);
 }
 
 /* Research Tab & Papers List */

@@ -31,6 +31,12 @@
   --badge-pub: var(--c1-final);
   --badge-pub-text: var(--c3-final);
 
+  /* Button Tokens */
+  --btn-bg: var(--accent-primary);
+  --btn-text: var(--c3-final);
+  --btn-hover-bg: var(--accent-secondary);
+  --btn-hover-text: var(--c3-final);
+
   --shadow-sm: none;
   --shadow-md: none;
   --glow-1: var(--c2-final);
@@ -63,6 +69,12 @@
   --badge-wp-text: var(--dc3-final);
   --badge-pub: var(--dc2-final);
   --badge-pub-text: var(--dc3-final);
+
+  /* Button Tokens */
+  --btn-bg: var(--accent-primary);
+  --btn-text: var(--bg-color);
+  --btn-hover-bg: var(--accent-secondary);
+  --btn-hover-text: var(--bg-color);
 
   --shadow-sm: none;
   --shadow-md: none;

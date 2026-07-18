@@ -101,6 +101,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Brand Name click switches to About tab
+  const navBrand = document.getElementById('navBrand');
+  if (navBrand) {
+    navBrand.addEventListener('click', (e) => {
+      e.preventDefault();
+      navLinks.forEach(n => n.classList.remove('active'));
+      tabPanes.forEach(p => p.classList.remove('active'));
+      
+      const aboutPane = document.getElementById('tab-about');
+      if (aboutPane) aboutPane.classList.add('active');
+      if (navMenu) navMenu.classList.remove('open');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
   // Dynamic Data Loading Engine
   async function loadData() {
     try {
@@ -128,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Render Profile Section
   function renderProfile() {
     document.getElementById('brandName').textContent = profileData.name;
-    document.getElementById('heroName').textContent = profileData.name;
+    document.getElementById('heroName').innerHTML = `Hi, I'm <strong>${profileData.name}</strong>`;
 
     const heroRoleContainer = document.getElementById('heroRole');
     const heroLocationContainer = document.getElementById('heroLocation');
