@@ -72,12 +72,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // Mobile Menu Toggle
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
   const navMenu = document.getElementById('navMenu');
-  mobileMenuBtn.addEventListener('click', () => {
-    navMenu.classList.toggle('open');
-  });
+  if (mobileMenuBtn && navMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+    });
+  }
 
-  // Tab Navigation
-  const navLinks = document.querySelectorAll('.nav-link');
+  // Tab Navigation (Ignores external links)
+  const navLinks = document.querySelectorAll('.nav-link:not(.nav-external)');
   const tabPanes = document.querySelectorAll('.tab-pane');
 
   navLinks.forEach(link => {
@@ -90,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
       link.classList.add('active');
       const targetPane = document.getElementById(`tab-${targetTab}`);
       if (targetPane) targetPane.classList.add('active');
-      navMenu.classList.remove('open');
+      if (navMenu) navMenu.classList.remove('open');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   });
@@ -139,9 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
       img.onload = () => {
         avatarWrapper.innerHTML = `<img src="${profileData.avatar}" alt="${profileData.name}" class="hero-avatar-img">`;
       };
-      img.onerror = () => {
-        // Keeps placeholder icon if image does not exist yet
-      };
     }
 
     // Contact info
@@ -149,19 +148,23 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('contactOffice').textContent = `${profileData.contact.office}, ${profileData.department}`;
     document.getElementById('contactAddress').textContent = profileData.contact.address;
 
-    // Research Field Badges
-    const fieldBadges = document.getElementById('fieldBadges');
-    if (fieldBadges) {
-      fieldBadges.innerHTML = '';
-      (profileData.research_fields || []).forEach(field => {
-        const badge = document.createElement('span');
-        badge.className = 'badge-tag';
-        badge.textContent = field;
-        fieldBadges.appendChild(badge);
-      });
+    // Affiliation Link Pills
+    const affContainer = document.getElementById('affiliationBadges');
+    if (affContainer && profileData.affiliations) {
+      affContainer.innerHTML = profileData.affiliations.map(aff => `
+        <a href="${aff.url}" target="_blank" rel="noopener" class="affiliation-link-badge">
+          <i class="fa-solid fa-graduation-cap"></i> ${aff.name} <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.7em;"></i>
+        </a>
+      `).join('');
     }
 
-    // Social Links (Official Bluesky & Strava SVG icons)
+    // Research Summary Line
+    const researchLine = document.getElementById('researchSummaryLine');
+    if (researchLine && profileData.research_fields) {
+      researchLine.textContent = `Researcher in Economics interested in ${profileData.research_fields.join(', ')}.`;
+    }
+
+    // Social Links (Official Bluesky Butterfly SVG & Strava SVG icons)
     const socialLinks = document.getElementById('socialLinks');
     if (socialLinks) {
       socialLinks.innerHTML = '';
@@ -170,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { 
           key: 'bluesky', 
           title: 'Bluesky', 
-          svg: `<svg role="img" viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M12 10.8c-1.087-2.114-4.046-6.053-7.498-7.928C2.557 1.722 0 3.235 0 7.202c0 4.195 2.1 11.233 8.358 13.064 6.772 1.98 3.642-4.148 3.642-4.148s-3.13 6.128 3.642 4.148C21.9 18.435 24 11.397 24 7.202c0-3.967-2.557-5.48-4.502-4.33-3.452 1.875-6.411 5.814-7.498 7.928Z"/></svg>` 
+          svg: `<svg viewBox="0 0 600 530" width="18" height="18" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M135.72 44.03c66.49 49.92 110.5 111.14 144.28 177.16 33.78-66.02 77.79-127.24 144.28-177.16C490.04-5.34 564-31.84 564 51.7c0 144.75-97.12 289.4-264 289.4C133.12 341.1 36 196.45 36 51.7c0-83.54 73.96-57.04 139.72-7.67z"/></svg>` 
         },
         { key: 'github', title: 'GitHub', icon: 'fa-brands fa-github' },
         { key: 'linkedin', title: 'LinkedIn', icon: 'fa-brands fa-linkedin' },

@@ -4,7 +4,8 @@
   "institution": "Universitat Pompeu Fabra & Bank of Italy",
   "department": "Department of Economics and Finance",
   "location": "Barcelona / Rome",
-  "bio": "I am a PhD Candidate in Economics at Universitat Pompeu Fabra (Barcelona) and a Research Intern at the Bank of Italy. My research focuses on New Keynesian theory, macrofinance, nonclearing markets, and deep learning for macroeconomics.",
+  "bio": "I am a PhD Candidate in Economics at Universitat Pompeu Fabra (Barcelona) and a Research Intern at the Bank of Italy.",
+  "notebook_url": "https://notebook.bianchichignoli.it/",
   "avatar": "assets/images/profile.jpg",
   "cv_pdf": "assets/papers/CV_LBC.pdf",
   "contact": {
@@ -18,6 +19,11 @@
     "bluesky": "https://bsky.app/profile/bianchichignoli.it",
     "strava": "https://www.strava.com/athletes/lorenzo_bianchi_chignoli"
   },
+  "affiliations": [
+    { "name": "Universitat Pompeu Fabra", "url": "https://www.upf.edu/" },
+    { "name": "Bank of Italy", "url": "https://www.bancaditalia.it/" },
+    { "name": "Barcelona School of Economics", "url": "https://bse.eu/" }
+  ],
   "research_fields": [
     "New Keynesian Theory",
     "Macrofinance",

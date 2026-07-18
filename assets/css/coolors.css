@@ -1,51 +1,45 @@
-/* =========================================================================
-   PASTE YOUR RAW COOLORS EXPORT DIRECTLY INTO THIS FILE!
-   You can copy-paste the entire block from Coolors (HEX, HSL, SCSS, etc.)
-   without removing comments or variable names. The site parses it automatically.
-   ========================================================================= */
-
 /* CSS HEX */
---old-rose: #d496a7ff;
---terracotta-clay: #9d695aff;
---pearl-aqua: #78e0dcff;
---electric-aqua: #8eedf7ff;
---sky-blue: #a1cdf1ff;
+--deep-twilight: #090446ff;
+--olive-wood: #786f52ff;
+--honey-bronze: #feb95fff;
+--strawberry-red: #f71735ff;
+--rosewood: #c2095aff;
 
 /* CSS HSL */
---old-rose: hsla(344, 42%, 71%, 1);
---terracotta-clay: hsla(13, 27%, 48%, 1);
---pearl-aqua: hsla(178, 63%, 67%, 1);
---electric-aqua: hsla(186, 87%, 76%, 1);
---sky-blue: hsla(207, 74%, 79%, 1);
+--deep-twilight: hsla(245, 89%, 15%, 1);
+--olive-wood: hsla(46, 19%, 40%, 1);
+--honey-bronze: hsla(34, 99%, 68%, 1);
+--strawberry-red: hsla(352, 93%, 53%, 1);
+--rosewood: hsla(334, 91%, 40%, 1);
 
 /* SCSS HEX */
-$old-rose: #d496a7ff;
-$terracotta-clay: #9d695aff;
-$pearl-aqua: #78e0dcff;
-$electric-aqua: #8eedf7ff;
-$sky-blue: #a1cdf1ff;
+$deep-twilight: #090446ff;
+$olive-wood: #786f52ff;
+$honey-bronze: #feb95fff;
+$strawberry-red: #f71735ff;
+$rosewood: #c2095aff;
 
 /* SCSS HSL */
-$old-rose: hsla(344, 42%, 71%, 1);
-$terracotta-clay: hsla(13, 27%, 48%, 1);
-$pearl-aqua: hsla(178, 63%, 67%, 1);
-$electric-aqua: hsla(186, 87%, 76%, 1);
-$sky-blue: hsla(207, 74%, 79%, 1);
+$deep-twilight: hsla(245, 89%, 15%, 1);
+$olive-wood: hsla(46, 19%, 40%, 1);
+$honey-bronze: hsla(34, 99%, 68%, 1);
+$strawberry-red: hsla(352, 93%, 53%, 1);
+$rosewood: hsla(334, 91%, 40%, 1);
 
 /* SCSS RGB */
-$old-rose: rgba(212, 150, 167, 1);
-$terracotta-clay: rgba(157, 105, 90, 1);
-$pearl-aqua: rgba(120, 224, 220, 1);
-$electric-aqua: rgba(142, 237, 247, 1);
-$sky-blue: rgba(161, 205, 241, 1);
+$deep-twilight: rgba(9, 4, 70, 1);
+$olive-wood: rgba(120, 111, 82, 1);
+$honey-bronze: rgba(254, 185, 95, 1);
+$strawberry-red: rgba(247, 23, 53, 1);
+$rosewood: rgba(194, 9, 90, 1);
 
 /* SCSS Gradient */
-$gradient-top: linear-gradient(0deg, #d496a7ff, #9d695aff, #78e0dcff, #8eedf7ff, #a1cdf1ff);
-$gradient-right: linear-gradient(90deg, #d496a7ff, #9d695aff, #78e0dcff, #8eedf7ff, #a1cdf1ff);
-$gradient-bottom: linear-gradient(180deg, #d496a7ff, #9d695aff, #78e0dcff, #8eedf7ff, #a1cdf1ff);
-$gradient-left: linear-gradient(270deg, #d496a7ff, #9d695aff, #78e0dcff, #8eedf7ff, #a1cdf1ff);
-$gradient-top-right: linear-gradient(45deg, #d496a7ff, #9d695aff, #78e0dcff, #8eedf7ff, #a1cdf1ff);
-$gradient-bottom-right: linear-gradient(135deg, #d496a7ff, #9d695aff, #78e0dcff, #8eedf7ff, #a1cdf1ff);
-$gradient-top-left: linear-gradient(225deg, #d496a7ff, #9d695aff, #78e0dcff, #8eedf7ff, #a1cdf1ff);
-$gradient-bottom-left: linear-gradient(315deg, #d496a7ff, #9d695aff, #78e0dcff, #8eedf7ff, #a1cdf1ff);
-$gradient-radial: radial-gradient(#d496a7ff, #9d695aff, #78e0dcff, #8eedf7ff, #a1cdf1ff);
+$gradient-top: linear-gradient(0deg, #090446ff, #786f52ff, #feb95fff, #f71735ff, #c2095aff);
+$gradient-right: linear-gradient(90deg, #090446ff, #786f52ff, #feb95fff, #f71735ff, #c2095aff);
+$gradient-bottom: linear-gradient(180deg, #090446ff, #786f52ff, #feb95fff, #f71735ff, #c2095aff);
+$gradient-left: linear-gradient(270deg, #090446ff, #786f52ff, #feb95fff, #f71735ff, #c2095aff);
+$gradient-top-right: linear-gradient(45deg, #090446ff, #786f52ff, #feb95fff, #f71735ff, #c2095aff);
+$gradient-bottom-right: linear-gradient(135deg, #090446ff, #786f52ff, #feb95fff, #f71735ff, #c2095aff);
+$gradient-top-left: linear-gradient(225deg, #090446ff, #786f52ff, #feb95fff, #f71735ff, #c2095aff);
+$gradient-bottom-left: linear-gradient(315deg, #090446ff, #786f52ff, #feb95fff, #f71735ff, #c2095aff);
+$gradient-radial: radial-gradient(#090446ff, #786f52ff, #feb95fff, #f71735ff, #c2095aff);

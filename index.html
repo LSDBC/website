@@ -36,6 +36,9 @@
       <nav class="nav-menu" id="navMenu">
         <button class="nav-link active" data-tab="about"><i class="fa-solid fa-user"></i> About</button>
         <button class="nav-link" data-tab="research"><i class="fa-solid fa-book-bookmark"></i> Research</button>
+        <a href="https://notebook.bianchichignoli.it/" target="_blank" rel="noopener" class="nav-link nav-external">
+          <i class="fa-solid fa-book"></i> Notes <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.7em; margin-left: 2px;"></i>
+        </a>
         <button class="nav-link" data-tab="cv"><i class="fa-solid fa-file-invoice"></i> CV & Talks</button>
         <button class="nav-link" data-tab="contact"><i class="fa-solid fa-paper-plane"></i> Contact</button>
       </nav>
@@ -64,9 +67,15 @@
         <p class="hero-role" id="heroRole">PhD Candidate in Economics @ UPF & Research Intern @ Bank of Italy</p>
         <p class="hero-location"><i class="fa-solid fa-location-dot"></i> <span id="heroLocation">Barcelona / Rome</span></p>
         
-        <div class="hero-badges" id="fieldBadges">
+        <!-- Affiliation Link Pills -->
+        <div class="hero-badges" id="affiliationBadges">
           <!-- Populated dynamically via JS -->
         </div>
+
+        <!-- Research Summary Text Line -->
+        <p class="research-summary-line" id="researchSummaryLine">
+          <!-- Populated dynamically via JS -->
+        </p>
 
         <div class="hero-links" id="socialLinks">
           <!-- Populated dynamically via JS -->
@@ -84,6 +93,11 @@
         <h2>About</h2>
         <div class="bio-text" id="bioText">
           Loading biography...
+        </div>
+
+        <div class="notebook-callout-box" id="notebookCallout">
+          <i class="fa-solid fa-book-bookmark"></i> 
+          I also publish lecture notes and materials from my PhD on my <a href="https://notebook.bianchichignoli.it/" target="_blank" rel="noopener">Economics Notebook</a>!
         </div>
       </div>
     </section>
@@ -110,7 +124,7 @@
       </div>
     </section>
 
-    <!-- TAB 3: CV & PRESENTATIONS (Prominent Download CV Button here) -->
+    <!-- TAB 3: CV & PRESENTATIONS -->
     <section id="tab-cv" class="tab-pane">
       <div class="section-header-bar">
         <h2>Curriculum Vitae</h2>
