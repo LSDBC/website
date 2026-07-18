@@ -27,16 +27,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // Coolors Automatic Palette Parser (Light vs Dark Mode, 3 colors limit)
   async function initCoolorsPaletteEngine() {
     try {
-      const res = await fetch('assets/css/coolors.css');
+      const res = await fetch('assets/css/palette.css');
       if (!res.ok) return;
       const text = await res.text();
 
-      // Extract blocks
-      const rootMatch = text.match(/:root\s*\{([^}]+)\}/);
-      const darkMatch = text.match(/\[data-theme="dark"\]\s*\{([^}]+)\}/);
+      // Split the file text by the "DARK MODE PALETTE" divider comment
+      const parts = text.split(/DARK MODE PALETTE/i);
+      const lightPart = parts[0] || '';
+      const darkPart = parts[1] || '';
 
       const extractColors = (blockText) => {
-        if (!blockText) return [];
         const matches = blockText.match(/#[0-9a-fA-F]{6,8}/g) || [];
         const unique = [];
         for (let hex of matches) {
@@ -50,8 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return unique;
       };
 
-      const lightColors = extractColors(rootMatch ? rootMatch[1] : '');
-      const darkColors = extractColors(darkMatch ? darkMatch[1] : '');
+      const lightColors = extractColors(lightPart);
+      const darkColors = extractColors(darkPart);
 
       let styleTag = document.getElementById('dynamic-coolors-styles');
       if (!styleTag) {
