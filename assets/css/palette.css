@@ -1,7 +1,6 @@
 /* =========================================================================
    PALETTE MAPPING FILE
-   Contains component mappings for Light and Dark themes.
-   DO NOT MODIFY. Edit light.css and dark.css to change your palettes.
+   Dynamic component mappings for Light and Dark themes using color-mix().
    ========================================================================= */
 
 :root {
@@ -9,31 +8,32 @@
   --c2-final: var(--c2, #6db1bf);
   --c3-final: var(--c3, #ffeaec);
 
+  /* Light Theme Surfaces & Text */
   --bg-color: #fdfcff;
   --bg-card: rgba(255, 255, 255, 0.92);
-  --border-color: rgba(109, 177, 191, 0.25);
+  --border-color: color-mix(in srgb, var(--c2-final) 30%, transparent);
   
   --text-primary: var(--c1-final);
   --text-secondary: var(--c2-final);
-  --text-muted: #5e4c73;
+  --text-muted: color-mix(in srgb, var(--c1-final) 60%, transparent);
 
   --accent-primary: var(--c1-final);
   --accent-secondary: var(--c2-final);
   --accent-highlight: var(--c2-final);
   --accent-light: var(--c3-final);
   
-  --tag-bg: rgba(109, 177, 191, 0.18);
+  --tag-bg: color-mix(in srgb, var(--c3-final) 55%, transparent);
   --tag-text: var(--c1-final);
   
-  --badge-wp: rgba(243, 154, 157, 0.25);
+  --badge-wp: color-mix(in srgb, var(--c2-final) 25%, transparent);
   --badge-wp-text: var(--c1-final);
-  --badge-pub: rgba(109, 177, 191, 0.2);
+  --badge-pub: color-mix(in srgb, var(--c3-final) 65%, transparent);
   --badge-pub-text: var(--c2-final);
 
-  --shadow-sm: 0 2px 8px rgba(48, 26, 75, 0.06);
-  --shadow-md: 0 8px 24px rgba(48, 26, 75, 0.12);
-  --glow-1: rgba(109, 177, 191, 0.25);
-  --glow-2: rgba(243, 154, 157, 0.18);
+  --shadow-sm: 0 2px 8px color-mix(in srgb, var(--c1-final) 8%, transparent);
+  --shadow-md: 0 8px 24px color-mix(in srgb, var(--c1-final) 15%, transparent);
+  --glow-1: color-mix(in srgb, var(--c2-final) 25%, transparent);
+  --glow-2: color-mix(in srgb, var(--c3-final) 30%, transparent);
 }
 
 [data-theme="dark"] {
@@ -41,29 +41,30 @@
   --dc2-final: var(--dark-c2, #8eedf7);
   --dc3-final: var(--dark-c3, #a1cdf1);
 
-  --bg-color: #0b120a;
-  --bg-card: rgba(17, 26, 15, 0.85);
-  --border-color: rgba(142, 237, 247, 0.25);
+  /* Dark Theme Surfaces & Text */
+  --bg-color: color-mix(in srgb, var(--dc1-final) 18%, #080c08);
+  --bg-card: color-mix(in srgb, var(--dc1-final) 22%, rgba(15, 20, 15, 0.85));
+  --border-color: color-mix(in srgb, var(--dc2-final) 30%, transparent);
   
-  --text-primary: #f5f3f7;
+  --text-primary: var(--dc3-final);
   --text-secondary: var(--dc2-final);
-  --text-muted: #c2afd9;
+  --text-muted: color-mix(in srgb, var(--dc3-final) 65%, transparent);
 
   --accent-primary: var(--dc2-final);
   --accent-secondary: var(--dc1-final);
   --accent-highlight: var(--dc1-final);
-  --accent-light: rgba(48, 26, 75, 0.6);
+  --accent-light: color-mix(in srgb, var(--dc1-final) 35%, transparent);
 
-  --tag-bg: rgba(142, 237, 247, 0.18);
+  --tag-bg: color-mix(in srgb, var(--dc2-final) 25%, transparent);
   --tag-text: var(--dc2-final);
 
-  --badge-wp: rgba(212, 150, 167, 0.25);
-  --badge-wp-text: var(--dc1-final);
-  --badge-pub: rgba(161, 205, 241, 0.2);
+  --badge-wp: color-mix(in srgb, var(--dc1-final) 30%, transparent);
+  --badge-wp-text: var(--dc3-final);
+  --badge-pub: color-mix(in srgb, var(--dc2-final) 25%, transparent);
   --badge-pub-text: var(--dc2-final);
 
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
   --shadow-md: 0 8px 28px rgba(0, 0, 0, 0.6);
-  --glow-1: rgba(142, 237, 247, 0.15);
-  --glow-2: rgba(212, 150, 167, 0.15);
+  --glow-1: color-mix(in srgb, var(--dc2-final) 20%, transparent);
+  --glow-2: color-mix(in srgb, var(--dc1-final) 20%, transparent);
 }

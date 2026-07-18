@@ -60,10 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
         root.style.setProperty('--c1', l1);
         root.style.setProperty('--c2', l2);
         root.style.setProperty('--c3', l3);
-        root.style.setProperty('--text-primary', l1);
-        root.style.setProperty('--accent-primary', l1);
-        root.style.setProperty('--accent-secondary', l2);
-        root.style.setProperty('--border-color', `${l2}40`);
       }
 
       if (darkVals.length >= 3) {

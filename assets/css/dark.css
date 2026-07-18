@@ -1,43 +1,43 @@
 [data-theme="dark"] {
-/* =========================================================================
+   /* =========================================================================
    PASTE DARK THEME COOLORS OUTPUT DIRECTLY BELOW THIS LINE
    ========================================================================= */
 
-/* CSS HEX */
---evergreen: #091e05ff;
---dark-spruce: #004f2dff;
---sweet-peony: #d87cacff;
+   /* CSS HEX */
+   --khaki-beige: #c3a995ff;
+   --dusty-taupe: #ab947eff;
+   --ash-brown: #6f5e53ff;
 
-/* CSS HSL */
---evergreen: hsla(110, 71%, 7%, 1);
---dark-spruce: hsla(154, 100%, 15%, 1);
---sweet-peony: hsla(329, 54%, 67%, 1);
+   /* CSS HSL */
+   --khaki-beige: hsla(26, 28%, 67%, 1);
+   --dusty-taupe: hsla(29, 21%, 58%, 1);
+   --ash-brown: hsla(24, 14%, 38%, 1);
 
-/* SCSS HEX */
-$evergreen: #091e05ff;
-$dark-spruce: #004f2dff;
-$sweet-peony: #d87cacff;
+   /* SCSS HEX */
+   $khaki-beige: #c3a995ff;
+   $dusty-taupe: #ab947eff;
+   $ash-brown: #6f5e53ff;
 
-/* SCSS HSL */
-$evergreen: hsla(110, 71%, 7%, 1);
-$dark-spruce: hsla(154, 100%, 15%, 1);
-$sweet-peony: hsla(329, 54%, 67%, 1);
+   /* SCSS HSL */
+   $khaki-beige: hsla(26, 28%, 67%, 1);
+   $dusty-taupe: hsla(29, 21%, 58%, 1);
+   $ash-brown: hsla(24, 14%, 38%, 1);
 
-/* SCSS RGB */
-$evergreen: rgba(9, 30, 5, 1);
-$dark-spruce: rgba(0, 79, 45, 1);
-$sweet-peony: rgba(216, 124, 172, 1);
+   /* SCSS RGB */
+   $khaki-beige: rgba(195, 169, 149, 1);
+   $dusty-taupe: rgba(171, 148, 126, 1);
+   $ash-brown: rgba(111, 94, 83, 1);
 
-/* SCSS Gradient */
-$gradient-top: linear-gradient(0deg, #091e05ff, #004f2dff, #d87cacff);
-$gradient-right: linear-gradient(90deg, #091e05ff, #004f2dff, #d87cacff);
-$gradient-bottom: linear-gradient(180deg, #091e05ff, #004f2dff, #d87cacff);
-$gradient-left: linear-gradient(270deg, #091e05ff, #004f2dff, #d87cacff);
-$gradient-top-right: linear-gradient(45deg, #091e05ff, #004f2dff, #d87cacff);
-$gradient-bottom-right: linear-gradient(135deg, #091e05ff, #004f2dff, #d87cacff);
-$gradient-top-left: linear-gradient(225deg, #091e05ff, #004f2dff, #d87cacff);
-$gradient-bottom-left: linear-gradient(315deg, #091e05ff, #004f2dff, #d87cacff);
-$gradient-radial: radial-gradient(#091e05ff, #004f2dff, #d87cacff);
+   /* SCSS Gradient */
+   $gradient-top: linear-gradient(0deg, #c3a995ff, #ab947eff, #6f5e53ff);
+   $gradient-right: linear-gradient(90deg, #c3a995ff, #ab947eff, #6f5e53ff);
+   $gradient-bottom: linear-gradient(180deg, #c3a995ff, #ab947eff, #6f5e53ff);
+   $gradient-left: linear-gradient(270deg, #c3a995ff, #ab947eff, #6f5e53ff);
+   $gradient-top-right: linear-gradient(45deg, #c3a995ff, #ab947eff, #6f5e53ff);
+   $gradient-bottom-right: linear-gradient(135deg, #c3a995ff, #ab947eff, #6f5e53ff);
+   $gradient-top-left: linear-gradient(225deg, #c3a995ff, #ab947eff, #6f5e53ff);
+   $gradient-bottom-left: linear-gradient(315deg, #c3a995ff, #ab947eff, #6f5e53ff);
+   $gradient-radial: radial-gradient(#c3a995ff, #ab947eff, #6f5e53ff);
 
-/* ========================================================================= */
+   /* ========================================================================= */
 }
