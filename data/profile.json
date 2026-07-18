@@ -1,0 +1,30 @@
+{
+  "name": "Jane Doe, PhD",
+  "title": "Senior Research Economist",
+  "institution": "Central Bank Research Department",
+  "department": "Monetary Policy & Financial Stability Division",
+  "location": "London / Frankfurt",
+  "bio": "I am a PhD Researcher in Economics specializing in monetary policy transmission, macro-finance, and computational text analysis. My current research focuses on central bank communication, inflation dynamics, and high-frequency financial market sentiment.",
+  "avatar": "assets/images/profile.png",
+  "cv_pdf": "assets/papers/CV_Jane_Doe.pdf",
+  "contact": {
+    "email": "researcher@centralbank.gov",
+    "office": "Room 4.12, Research Building",
+    "address": "123 Financial Avenue, Monetary District"
+  },
+  "social": {
+    "google_scholar": "https://scholar.google.com",
+    "orcid": "https://orcid.org/0000-0000-0000-0000",
+    "github": "https://github.com",
+    "linkedin": "https://linkedin.com",
+    "twitter": "https://x.com",
+    "ssrn": "https://ssrn.com"
+  },
+  "research_fields": [
+    "Monetary Economics",
+    "Macro-Finance",
+    "Central Bank Communication",
+    "Financial NLP & Sentiment",
+    "Applied Time Series"
+  ]
+}

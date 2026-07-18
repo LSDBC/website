@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academic Profile & Research | Central Bank PhD Researcher</title>
+  <meta name="description" content="Personal academic research website, working papers, published articles, and CV of PhD Researcher at Central Bank.">
+  
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Background Blur Accents -->
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+
+  <!-- Global Header Navigation -->
+  <header class="navbar-header">
+    <div class="container navbar-container">
+      <a href="#about" class="nav-brand" id="navBrand">
+        <span class="brand-name" id="brandName">Jane Doe</span>
+        <span class="brand-tag" id="brandTag">PhD Researcher</span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <button class="nav-link active" data-tab="about"><i class="fa-solid fa-user"></i> About</button>
+        <button class="nav-link" data-tab="research"><i class="fa-solid fa-book-bookmark"></i> Research</button>
+        <button class="nav-link" data-tab="policy"><i class="fa-solid fa-landmark"></i> Policy & Notes</button>
+        <button class="nav-link" data-tab="cv"><i class="fa-solid fa-file-invoice"></i> CV & Talks</button>
+        <button class="nav-link" data-tab="contact"><i class="fa-solid fa-paper-plane"></i> Contact</button>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="themeToggleBtn" class="theme-toggle" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button id="mobileMenuBtn" class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Profile Banner -->
+  <section class="hero-section">
+    <div class="container hero-container">
+      <div class="hero-avatar-wrapper">
+        <div class="avatar-placeholder" id="avatarBox">
+          <i class="fa-solid fa-user-tie"></i>
+        </div>
+      </div>
+      <div class="hero-details">
+        <h1 class="hero-name" id="heroName">Jane Doe, PhD</h1>
+        <p class="hero-role" id="heroRole">Senior Research Economist @ Central Bank</p>
+        <p class="hero-location"><i class="fa-solid fa-location-dot"></i> <span id="heroLocation">Frankfurt / London</span></p>
+        
+        <div class="hero-badges" id="fieldBadges">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <div class="hero-links" id="socialLinks">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Body -->
+  <main class="container main-content">
+
+    <!-- TAB 1: ABOUT / BIO -->
+    <section id="tab-about" class="tab-pane active">
+      <div class="content-card">
+        <h2>Biography & Research Agenda</h2>
+        <div class="bio-text" id="bioText">
+          Loading biography...
+        </div>
+      </div>
+
+      <div class="content-grid-2">
+        <div class="content-card">
+          <h3><i class="fa-solid fa-compass"></i> Primary Fields</h3>
+          <ul class="fields-list" id="primaryFieldsList">
+            <!-- Dynamically populated -->
+          </ul>
+        </div>
+        <div class="content-card">
+          <h3><i class="fa-solid fa-file-pdf"></i> Curriculum Vitae</h3>
+          <p>Download my full academic and professional CV below (PDF format).</p>
+          <a href="#" id="cvDownloadBtn" class="btn btn-primary" target="_blank">
+            <i class="fa-solid fa-download"></i> Download Full CV (PDF)
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: RESEARCH & PUBLICATIONS -->
+    <section id="tab-research" class="tab-pane">
+      <div class="section-header-bar">
+        <h2>Academic Papers & Research</h2>
+        <div class="filter-controls">
+          <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="paperSearchInput" placeholder="Search by title, coauthor, or keyword...">
+          </div>
+          <div class="type-filter">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="working_paper">Working Papers</button>
+            <button class="filter-btn" data-filter="published">Published</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="papersListContainer" class="papers-list">
+        <!-- Dynamically populated via app.js -->
+      </div>
+    </section>
+
+    <!-- TAB 3: POLICY & NOTES -->
+    <section id="tab-policy" class="tab-pane">
+      <div class="content-card">
+        <h2>Policy Contributions, Speeches & Bulletins</h2>
+        <p class="section-subtitle">Macroprudential briefings, monetary policy reports, and non-technical policy notes.</p>
+        <div id="policyListContainer" class="papers-list">
+          <!-- Dynamically populated via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: CV & PRESENTATIONS -->
+    <section id="tab-cv" class="tab-pane">
+      <div class="cv-sections-wrapper">
+        <div class="content-card">
+          <h3><i class="fa-solid fa-briefcase"></i> Professional Appointments</h3>
+          <div id="cvAppointments" class="timeline-list"></div>
+        </div>
+
+        <div class="content-card">
+          <h3><i class="fa-solid fa-graduation-cap"></i> Education</h3>
+          <div id="cvEducation" class="timeline-list"></div>
+        </div>
+
+        <div class="content-card">
+          <h3><i class="fa-solid fa-microphone"></i> Invited Seminars & Conferences</h3>
+          <div id="cvPresentations" class="accordion-list"></div>
+        </div>
+
+        <div class="content-grid-2">
+          <div class="content-card">
+            <h3><i class="fa-solid fa-gavel"></i> Refereeing Service</h3>
+            <div id="cvReferee" class="tags-cloud"></div>
+          </div>
+          <div class="content-card">
+            <h3><i class="fa-solid fa-award"></i> Awards & Fellowships</h3>
+            <div id="cvAwards" class="awards-list"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: CONTACT -->
+    <section id="tab-contact" class="tab-pane">
+      <div class="content-card contact-card">
+        <h2>Contact Information</h2>
+        <div class="contact-details-grid">
+          <div class="contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <div>
+              <strong>Email</strong>
+              <p id="contactEmail">researcher@centralbank.gov</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fa-solid fa-building-columns"></i>
+            <div>
+              <strong>Office & Division</strong>
+              <p id="contactOffice">Monetary Policy Research Division</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fa-solid fa-map-pin"></i>
+            <div>
+              <strong>Mailing Address</strong>
+              <p id="contactAddress">Central Bank Headquarters</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- BibTeX Modal -->
+  <div id="bibtexModal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3>BibTeX Citation</h3>
+        <button id="closeBibtexModal" class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <pre><code id="bibtexCode"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <button id="copyBibtexBtn" class="btn btn-primary"><i class="fa-regular fa-copy"></i> Copy to Clipboard</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <p>&copy; <span id="currentYear"></span> <span id="footerAuthor">Jane Doe</span>. Powered by Data-Driven AI Architecture.</p>
+      <p class="footer-subtext">The views expressed on this website are solely those of the author and do not necessarily reflect the official position of the Central Bank.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
