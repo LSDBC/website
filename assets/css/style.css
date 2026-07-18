@@ -273,23 +273,19 @@ body {
   padding: 1.1rem 1.35rem;
   border-radius: 0.5rem;
   background-color: var(--tag-bg);
-  border-left: 4px solid var(--accent-secondary);
+  border-left: 4px solid var(--accent-primary);
   font-size: 0.98rem;
-  color: var(--text-primary);
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.notebook-callout-box i {
-  color: var(--accent-secondary);
-  font-size: 1.2rem;
+  color: var(--tag-text);
 }
 
 .notebook-callout-box a {
-  color: var(--accent-secondary);
-  font-weight: 600;
+  color: var(--tag-text);
+  font-weight: 700;
   text-decoration: underline;
+}
+
+.notebook-callout-box a:hover {
+  opacity: 0.85;
 }
 
 .badge-tag {
