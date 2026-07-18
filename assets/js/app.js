@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
       : '<i class="fa-solid fa-moon"></i>';
   }
 
-  // Automatic Native StyleSheet Palette Parser (CORS-safe for file:// and http://)
+  // Automatic Native 3-File StyleSheet Palette Parser
   function initCoolorsPaletteEngine() {
     try {
       let lightVals = [];
@@ -32,23 +32,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
       for (let sheet of document.styleSheets) {
         try {
-          if (!sheet.href || sheet.href.includes('palette.css')) {
+          if (sheet.href && sheet.href.includes('light.css')) {
             const rules = sheet.cssRules || sheet.rules || [];
             for (let rule of rules) {
-              if (rule.selectorText === ':root') {
-                const text = rule.cssText || '';
-                const matches = text.match(/(#[0-9a-fA-F]{3,8}|hsla?\([^)]+\))/g) || [];
-                lightVals = [...new Set(matches.map(m => m.length === 9 ? m.substring(0, 7) : m))].slice(0, 3);
-              }
-              if (rule.selectorText === '[data-theme="dark"]') {
-                const text = rule.cssText || '';
-                const matches = text.match(/(#[0-9a-fA-F]{3,8}|hsla?\([^)]+\))/g) || [];
-                darkVals = [...new Set(matches.map(m => m.length === 9 ? m.substring(0, 7) : m))].slice(0, 3);
-              }
+              const text = rule.cssText || '';
+              const matches = text.match(/(#[0-9a-fA-F]{3,8}|hsla?\([^)]+\))/g) || [];
+              lightVals = [...new Set(matches.map(m => m.length === 9 ? m.substring(0, 7) : m))].slice(0, 3);
+            }
+          }
+          if (sheet.href && sheet.href.includes('dark.css')) {
+            const rules = sheet.cssRules || sheet.rules || [];
+            for (let rule of rules) {
+              const text = rule.cssText || '';
+              const matches = text.match(/(#[0-9a-fA-F]{3,8}|hsla?\([^)]+\))/g) || [];
+              darkVals = [...new Set(matches.map(m => m.length === 9 ? m.substring(0, 7) : m))].slice(0, 3);
             }
           }
         } catch (e) {
-          // Ignore cross-domain sheets if any
+          // Ignore cross-domain sheets
         }
       }
 
@@ -56,9 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (lightVals.length >= 3) {
         const [l1, l2, l3] = lightVals;
-        root.style.setProperty('--c1-final', l1);
-        root.style.setProperty('--c2-final', l2);
-        root.style.setProperty('--c3-final', l3);
+        root.style.setProperty('--c1', l1);
+        root.style.setProperty('--c2', l2);
+        root.style.setProperty('--c3', l3);
         root.style.setProperty('--text-primary', l1);
         root.style.setProperty('--accent-primary', l1);
         root.style.setProperty('--accent-secondary', l2);
@@ -70,9 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
         root.style.setProperty('--dark-c1', d1);
         root.style.setProperty('--dark-c2', d2);
         root.style.setProperty('--dark-c3', d3);
-        root.style.setProperty('--dc1-final', d1);
-        root.style.setProperty('--dc2-final', d2);
-        root.style.setProperty('--dc3-final', d3);
       }
     } catch (err) {
       console.warn('StyleSheet palette parsing note:', err);

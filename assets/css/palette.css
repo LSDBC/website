@@ -1,26 +1,17 @@
 /* =========================================================================
-   PALETTE CONFIGURATION FILE
-   
-   HOW TO USE:
-   Paste your 3-color Coolors export inside :root (for Light Mode) 
-   and inside [data-theme="dark"] (for Dark Mode).
+   PALETTE MAPPING FILE
+   Contains component mappings for Light and Dark themes.
+   DO NOT MODIFY. Edit light.css and dark.css to change your palettes.
    ========================================================================= */
 
 :root {
-  /* --- LIGHT MODE PALETTE (Paste 3 Coolors lines below) --- */
-  --c1: #283618;
-  --c2: #606c38;
-  --c3: #fefae0;
+  --c1-final: var(--c1, #301a4b);
+  --c2-final: var(--c2, #6db1bf);
+  --c3-final: var(--c3, #ffeaec);
 
-  /* Automatic Variable Aliases */
-  --c1-final: var(--c1, var(--color-1, var(--dark-amethyst, #283618)));
-  --c2-final: var(--c2, var(--color-2, var(--pacific-blue, #606c38)));
-  --c3-final: var(--c3, var(--color-3, var(--cornsilk, #fefae0)));
-
-  /* Light Theme Mapping */
   --bg-color: #fdfcff;
   --bg-card: rgba(255, 255, 255, 0.92);
-  --border-color: rgba(96, 108, 56, 0.25);
+  --border-color: rgba(109, 177, 191, 0.25);
   
   --text-primary: var(--c1-final);
   --text-secondary: var(--c2-final);
@@ -31,33 +22,27 @@
   --accent-highlight: var(--c2-final);
   --accent-light: var(--c3-final);
   
-  --tag-bg: rgba(254, 250, 224, 0.6);
+  --tag-bg: rgba(109, 177, 191, 0.18);
   --tag-text: var(--c1-final);
   
-  --badge-wp: rgba(96, 108, 56, 0.15);
+  --badge-wp: rgba(243, 154, 157, 0.25);
   --badge-wp-text: var(--c1-final);
-  --badge-pub: rgba(254, 250, 224, 0.8);
+  --badge-pub: rgba(109, 177, 191, 0.2);
   --badge-pub-text: var(--c2-final);
 
-  --shadow-sm: 0 2px 8px rgba(40, 54, 24, 0.06);
-  --shadow-md: 0 8px 24px rgba(40, 54, 24, 0.12);
-  --glow-1: rgba(96, 108, 56, 0.15);
-  --glow-2: rgba(254, 250, 224, 0.2);
+  --shadow-sm: 0 2px 8px rgba(48, 26, 75, 0.06);
+  --shadow-md: 0 8px 24px rgba(48, 26, 75, 0.12);
+  --glow-1: rgba(109, 177, 191, 0.25);
+  --glow-2: rgba(243, 154, 157, 0.18);
 }
 
 [data-theme="dark"] {
-  /* --- DARK MODE PALETTE (Paste 3 Coolors lines below) --- */
-  --dark-c1: #d496a7;
-  --dark-c2: #8eedf7;
-  --dark-c3: #a1cdf1;
+  --dc1-final: var(--dark-c1, #d496a7);
+  --dc2-final: var(--dark-c2, #8eedf7);
+  --dc3-final: var(--dark-c3, #a1cdf1);
 
-  --dc1-final: var(--dark-c1, var(--c1-final));
-  --dc2-final: var(--dark-c2, var(--c2-final));
-  --dc3-final: var(--dark-c3, var(--c3-final));
-
-  /* Dark Theme Mapping */
-  --bg-color: #120a1c;
-  --bg-card: rgba(26, 15, 41, 0.85);
+  --bg-color: #0b120a;
+  --bg-card: rgba(17, 26, 15, 0.85);
   --border-color: rgba(142, 237, 247, 0.25);
   
   --text-primary: #f5f3f7;

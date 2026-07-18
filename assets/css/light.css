@@ -1,0 +1,43 @@
+:root {
+/* =========================================================================
+   PASTE LIGHT THEME COOLORS OUTPUT DIRECTLY BELOW THIS LINE
+   ========================================================================= */
+
+/* CSS HEX */
+--ash-grey: #bfc3baff;
+--silver: #a9aca9ff;
+--mauve-shadow: #60495aff;
+
+/* CSS HSL */
+--ash-grey: hsla(87, 7%, 75%, 1);
+--silver: hsla(120, 2%, 67%, 1);
+--mauve-shadow: hsla(316, 14%, 33%, 1);
+
+/* SCSS HEX */
+$ash-grey: #bfc3baff;
+$silver: #a9aca9ff;
+$mauve-shadow: #60495aff;
+
+/* SCSS HSL */
+$ash-grey: hsla(87, 7%, 75%, 1);
+$silver: hsla(120, 2%, 67%, 1);
+$mauve-shadow: hsla(316, 14%, 33%, 1);
+
+/* SCSS RGB */
+$ash-grey: rgba(191, 195, 186, 1);
+$silver: rgba(169, 172, 169, 1);
+$mauve-shadow: rgba(96, 73, 90, 1);
+
+/* SCSS Gradient */
+$gradient-top: linear-gradient(0deg, #bfc3baff, #a9aca9ff, #60495aff);
+$gradient-right: linear-gradient(90deg, #bfc3baff, #a9aca9ff, #60495aff);
+$gradient-bottom: linear-gradient(180deg, #bfc3baff, #a9aca9ff, #60495aff);
+$gradient-left: linear-gradient(270deg, #bfc3baff, #a9aca9ff, #60495aff);
+$gradient-top-right: linear-gradient(45deg, #bfc3baff, #a9aca9ff, #60495aff);
+$gradient-bottom-right: linear-gradient(135deg, #bfc3baff, #a9aca9ff, #60495aff);
+$gradient-top-left: linear-gradient(225deg, #bfc3baff, #a9aca9ff, #60495aff);
+$gradient-bottom-left: linear-gradient(315deg, #bfc3baff, #a9aca9ff, #60495aff);
+$gradient-radial: radial-gradient(#bfc3baff, #a9aca9ff, #60495aff);
+
+/* ========================================================================= */
+}
