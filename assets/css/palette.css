@@ -37,9 +37,10 @@
   --btn-hover-bg: var(--accent-secondary);
   --btn-hover-text: var(--c3-final);
 
-  /* Filter Active State */
-  --filter-active-bg: #000000;
-  --filter-active-text: #ffffff;
+  /* Filter Selector Tokens */
+  --filter-btn-text: #000000;
+  --filter-btn-active-bg: var(--border-color);
+  --filter-btn-active-text: #000000;
 
   --shadow-sm: none;
   --shadow-md: none;
@@ -80,9 +81,10 @@
   --btn-hover-bg: var(--accent-secondary);
   --btn-hover-text: var(--bg-color);
 
-  /* Filter Active State */
-  --filter-active-bg: #ffffff;
-  --filter-active-text: #000000;
+  /* Filter Selector Tokens */
+  --filter-btn-text: var(--text-muted);
+  --filter-btn-active-bg: var(--accent-primary);
+  --filter-btn-active-text: var(--bg-color);
 
   --shadow-sm: none;
   --shadow-md: none;

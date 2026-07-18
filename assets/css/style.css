@@ -497,15 +497,15 @@ body {
   font-size: 0.8rem;
   padding: 0.35rem 0.75rem;
   border-radius: 0.25rem;
-  color: var(--text-muted);
+  color: var(--filter-btn-text);
   cursor: pointer;
   transition: all 0.2s ease;
   font-family: var(--font-body);
 }
 
 .filter-btn.active {
-  background-color: var(--filter-active-bg);
-  color: var(--filter-active-text);
+  background-color: var(--filter-btn-active-bg);
+  color: var(--filter-btn-active-text);
 }
 
 /* Paper Card Item */
