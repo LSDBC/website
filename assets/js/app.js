@@ -180,8 +180,12 @@ document.addEventListener('DOMContentLoaded', () => {
       emailBtn.innerHTML = `<i class="fa-solid fa-envelope"></i> ${profileData.contact.email}`;
     }
     const dept = profileData.department || (profileData.positions && profileData.positions[0] ? profileData.positions[0].department : '');
-    document.getElementById('contactOffice').textContent = dept ? `${profileData.contact.office}, ${dept}` : profileData.contact.office;
-    document.getElementById('contactAddress').textContent = profileData.contact.address;
+    const officeText = dept ? `${profileData.contact.office}, ${dept}` : profileData.contact.office;
+    const addressText = profileData.contact.address;
+    const officeEl = document.getElementById('contactOffice');
+    if (officeEl) {
+      officeEl.innerHTML = `${officeText}<br><span style="display: block; margin-top: 0.25rem; font-size: 0.9em; opacity: 0.85;">${addressText}</span>`;
+    }
 
     // Research Summary Line
     const researchLine = document.getElementById('researchSummaryLine');
