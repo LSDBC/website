@@ -5,40 +5,40 @@
 
 
    /* CSS HEX */
-   --platinum: #ebebebff;
+   --dust-grey: #d6d6d6ff;
    --silver: #b6aba5ff;
    --black: #000000ff;
 
    /* CSS HSL */
-   --platinum: hsla(0, 0%, 92%, 1);
+   --dust-grey: hsla(0, 0%, 84%, 1);
    --silver: hsla(21, 10%, 68%, 1);
    --black: hsla(0, 0%, 0%, 1);
 
    /* SCSS HEX */
-   $platinum: #ebebebff;
+   $dust-grey: #d6d6d6ff;
    $silver: #b6aba5ff;
    $black: #000000ff;
 
    /* SCSS HSL */
-   $platinum: hsla(0, 0%, 92%, 1);
+   $dust-grey: hsla(0, 0%, 84%, 1);
    $silver: hsla(21, 10%, 68%, 1);
    $black: hsla(0, 0%, 0%, 1);
 
    /* SCSS RGB */
-   $platinum: rgba(235, 235, 235, 1);
+   $dust-grey: rgba(214, 214, 214, 1);
    $silver: rgba(182, 171, 165, 1);
    $black: rgba(0, 0, 0, 1);
 
    /* SCSS Gradient */
-   $gradient-top: linear-gradient(0deg, #ebebebff, #b6aba5ff, #000000ff);
-   $gradient-right: linear-gradient(90deg, #ebebebff, #b6aba5ff, #000000ff);
-   $gradient-bottom: linear-gradient(180deg, #ebebebff, #b6aba5ff, #000000ff);
-   $gradient-left: linear-gradient(270deg, #ebebebff, #b6aba5ff, #000000ff);
-   $gradient-top-right: linear-gradient(45deg, #ebebebff, #b6aba5ff, #000000ff);
-   $gradient-bottom-right: linear-gradient(135deg, #ebebebff, #b6aba5ff, #000000ff);
-   $gradient-top-left: linear-gradient(225deg, #ebebebff, #b6aba5ff, #000000ff);
-   $gradient-bottom-left: linear-gradient(315deg, #ebebebff, #b6aba5ff, #000000ff);
-   $gradient-radial: radial-gradient(#ebebebff, #b6aba5ff, #000000ff);
+   $gradient-top: linear-gradient(0deg, #d6d6d6ff, #b6aba5ff, #000000ff);
+   $gradient-right: linear-gradient(90deg, #d6d6d6ff, #b6aba5ff, #000000ff);
+   $gradient-bottom: linear-gradient(180deg, #d6d6d6ff, #b6aba5ff, #000000ff);
+   $gradient-left: linear-gradient(270deg, #d6d6d6ff, #b6aba5ff, #000000ff);
+   $gradient-top-right: linear-gradient(45deg, #d6d6d6ff, #b6aba5ff, #000000ff);
+   $gradient-bottom-right: linear-gradient(135deg, #d6d6d6ff, #b6aba5ff, #000000ff);
+   $gradient-top-left: linear-gradient(225deg, #d6d6d6ff, #b6aba5ff, #000000ff);
+   $gradient-bottom-left: linear-gradient(315deg, #d6d6d6ff, #b6aba5ff, #000000ff);
+   $gradient-radial: radial-gradient(#d6d6d6ff, #b6aba5ff, #000000ff);
 
 
    /* ========================================================================= */
