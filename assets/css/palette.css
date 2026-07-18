@@ -3,9 +3,10 @@
    (Paste your raw Coolors export block directly below this line)
    ========================================================================= */
 /* CSS HEX */
---evergreen: #091e05ff;
---dark-spruce: #004f2dff;
---sweet-peony: #d87cacff;
+/* CSS HEX */
+--black-forest: #283618ff;
+--olive-leaf: #606c38ff;
+--cornsilk: #fefae0ff;
 
 
 /* =========================================================================
@@ -22,57 +23,57 @@
    BASELINE STYLE MAPPINGS (Do not modify or delete below this line)
    ========================================================================= */
 :root {
-  --bg-color: #fdfcff;
-  --bg-card: rgba(255, 255, 255, 0.92);
-  --border-color: rgba(109, 177, 191, 0.35);
-  
-  --text-primary: var(--c1, #301a4b);
-  --text-secondary: var(--c2, #6db1bf);
-  --text-muted: #5e4c73;
+   --bg-color: #fdfcff;
+   --bg-card: rgba(255, 255, 255, 0.92);
+   --border-color: rgba(109, 177, 191, 0.35);
 
-  --accent-primary: var(--c1, #301a4b);
-  --accent-secondary: var(--c2, #6db1bf);
-  --accent-highlight: var(--c4, #f39a9d);
-  --accent-light: var(--c3, #ffeaec);
-  
-  --tag-bg: rgba(109, 177, 191, 0.18);
-  --tag-text: var(--c1, #301a4b);
-  
-  --badge-wp: rgba(243, 154, 157, 0.25);
-  --badge-wp-text: #801d2c;
-  --badge-pub: rgba(63, 108, 81, 0.18);
-  --badge-pub-text: var(--c5, #3f6c51);
+   --text-primary: var(--c1, #301a4b);
+   --text-secondary: var(--c2, #6db1bf);
+   --text-muted: #5e4c73;
 
-  --shadow-sm: 0 2px 8px rgba(48, 26, 75, 0.06);
-  --shadow-md: 0 8px 24px rgba(48, 26, 75, 0.12);
-  --glow-1: rgba(109, 177, 191, 0.25);
-  --glow-2: rgba(243, 154, 157, 0.18);
+   --accent-primary: var(--c1, #301a4b);
+   --accent-secondary: var(--c2, #6db1bf);
+   --accent-highlight: var(--c4, #f39a9d);
+   --accent-light: var(--c3, #ffeaec);
+
+   --tag-bg: rgba(109, 177, 191, 0.18);
+   --tag-text: var(--c1, #301a4b);
+
+   --badge-wp: rgba(243, 154, 157, 0.25);
+   --badge-wp-text: #801d2c;
+   --badge-pub: rgba(63, 108, 81, 0.18);
+   --badge-pub-text: var(--c5, #3f6c51);
+
+   --shadow-sm: 0 2px 8px rgba(48, 26, 75, 0.06);
+   --shadow-md: 0 8px 24px rgba(48, 26, 75, 0.12);
+   --glow-1: rgba(109, 177, 191, 0.25);
+   --glow-2: rgba(243, 154, 157, 0.18);
 }
 
 [data-theme="dark"] {
-  --bg-color: #120a1c;
-  --bg-card: rgba(26, 15, 41, 0.85);
-  --border-color: rgba(109, 177, 191, 0.25);
-  
-  --text-primary: #f5ebfa;
-  --text-secondary: var(--c2, #8eedf7);
-  --text-muted: #c2afd9;
+   --bg-color: #120a1c;
+   --bg-card: rgba(26, 15, 41, 0.85);
+   --border-color: rgba(109, 177, 191, 0.25);
 
-  --accent-primary: var(--c2, #8eedf7);
-  --accent-secondary: var(--c1, #d496a7);
-  --accent-highlight: var(--c1, #d496a7);
-  --accent-light: rgba(48, 26, 75, 0.6);
+   --text-primary: #f5ebfa;
+   --text-secondary: var(--c2, #8eedf7);
+   --text-muted: #c2afd9;
 
-  --tag-bg: rgba(109, 177, 191, 0.22);
-  --tag-text: var(--c2, #8eedf7);
+   --accent-primary: var(--c2, #8eedf7);
+   --accent-secondary: var(--c1, #d496a7);
+   --accent-highlight: var(--c1, #d496a7);
+   --accent-light: rgba(48, 26, 75, 0.6);
 
-  --badge-wp: rgba(243, 154, 157, 0.35);
-  --badge-wp-text: var(--c1, #d496a7);
-  --badge-pub: rgba(63, 108, 81, 0.4);
-  --badge-pub-text: #8ed6a6;
+   --tag-bg: rgba(109, 177, 191, 0.22);
+   --tag-text: var(--c2, #8eedf7);
 
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 8px 28px rgba(0, 0, 0, 0.6);
-  --glow-1: rgba(109, 177, 191, 0.18);
-  --glow-2: rgba(48, 26, 75, 0.35);
+   --badge-wp: rgba(243, 154, 157, 0.35);
+   --badge-wp-text: var(--c1, #d496a7);
+   --badge-pub: rgba(63, 108, 81, 0.4);
+   --badge-pub-text: #8ed6a6;
+
+   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+   --shadow-md: 0 8px 28px rgba(0, 0, 0, 0.6);
+   --glow-1: rgba(109, 177, 191, 0.18);
+   --glow-2: rgba(48, 26, 75, 0.35);
 }

@@ -24,20 +24,21 @@ document.addEventListener('DOMContentLoaded', () => {
       : '<i class="fa-solid fa-moon"></i>';
   }
 
-  // Coolors Automatic Palette Parser (Light vs Dark Mode, 3 colors limit)
+  // Automatic Zero-Friction Palette Engine
   async function initCoolorsPaletteEngine() {
     try {
       const res = await fetch('assets/css/palette.css');
       if (!res.ok) return;
       const text = await res.text();
 
-      // Split the file text by the "DARK MODE PALETTE" divider comment
-      const parts = text.split(/DARK MODE PALETTE/i);
-      const lightPart = parts[0] || '';
-      const darkPart = parts[1] || '';
+      // Check if user separated light vs dark with a comment like /* DARK */ or /* DARK MODE */
+      const darkSplit = text.split(/\/\*\s*DARK.*?\*\//i);
+      const lightText = darkSplit[0] || text;
+      const darkText = darkSplit[1] || '';
 
-      const extractColors = (blockText) => {
-        const matches = blockText.match(/#[0-9a-fA-F]{6,8}/g) || [];
+      const extractColors = (str) => {
+        if (!str) return [];
+        const matches = str.match(/#[0-9a-fA-F]{6,8}\b/g) || [];
         const unique = [];
         for (let hex of matches) {
           let cleanHex = hex.length === 9 ? hex.substring(0, 7) : hex;
@@ -50,8 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return unique;
       };
 
-      const lightColors = extractColors(lightPart);
-      const darkColors = extractColors(darkPart);
+      const lightColors = extractColors(lightText);
+      const darkColors = extractColors(darkText);
 
       let styleTag = document.getElementById('dynamic-coolors-styles');
       if (!styleTag) {
@@ -83,34 +84,55 @@ document.addEventListener('DOMContentLoaded', () => {
             --glow-2: ${l2}22;
           }
         `;
-      }
 
-      if (darkColors.length >= 3) {
-        const [d1, d2, d3] = darkColors;
-        cssContent += `
-          [data-theme="dark"] {
-            --c1: ${d1};
-            --c2: ${d2};
-            --c3: ${d3};
-            --accent-primary: ${d2};
-            --accent-secondary: ${d1};
-            --text-primary: ${d3};
-            --text-secondary: ${d2};
-            --tag-bg: ${d2}33;
-            --tag-text: ${d2};
-            --badge-wp: ${d1}33;
-            --badge-wp-text: ${d2};
-            --badge-pub: ${d3}44;
-            --badge-pub-text: ${d1};
-            --glow-1: ${d2}22;
-            --glow-2: ${d1}22;
-          }
-        `;
+        if (darkColors.length >= 3) {
+          const [d1, d2, d3] = darkColors;
+          cssContent += `
+            [data-theme="dark"] {
+              --c1: ${d1};
+              --c2: ${d2};
+              --c3: ${d3};
+              --accent-primary: ${d2};
+              --accent-secondary: ${d1};
+              --text-primary: ${d3};
+              --text-secondary: ${d2};
+              --tag-bg: ${d2}33;
+              --tag-text: ${d2};
+              --badge-wp: ${d1}33;
+              --badge-wp-text: ${d2};
+              --badge-pub: ${d3}44;
+              --badge-pub-text: ${d1};
+              --glow-1: ${d2}22;
+              --glow-2: ${d1}22;
+            }
+          `;
+        } else {
+          // Derived Dark Mode when single palette is pasted
+          cssContent += `
+            [data-theme="dark"] {
+              --c1: ${l3};
+              --c2: ${l2};
+              --c3: ${l1};
+              --accent-primary: ${l2};
+              --accent-secondary: ${l3};
+              --text-primary: #f5f3f7;
+              --text-secondary: ${l2};
+              --tag-bg: ${l2}33;
+              --tag-text: ${l2};
+              --badge-wp: ${l2}33;
+              --badge-wp-text: ${l3};
+              --badge-pub: ${l3}22;
+              --badge-pub-text: ${l2};
+              --glow-1: ${l2}22;
+              --glow-2: ${l3}15;
+            }
+          `;
+        }
       }
 
       styleTag.textContent = cssContent;
     } catch (err) {
-      console.warn('Coolors palette parsing note:', err);
+      console.warn('Palette parsing notice:', err);
     }
   }
 
@@ -248,7 +270,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Render Research Publications
-  // (rest of code unchanged)
   function renderPublications(papers, filterType = 'all', searchQuery = '') {
     const container = document.getElementById('papersListContainer');
     if (!container) return;
