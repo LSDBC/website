@@ -24,46 +24,91 @@ document.addEventListener('DOMContentLoaded', () => {
       : '<i class="fa-solid fa-moon"></i>';
   }
 
-  // Coolors Automatic Palette Parser
+  // Coolors Automatic Palette Parser (Light vs Dark Mode, 3 colors limit)
   async function initCoolorsPaletteEngine() {
     try {
       const res = await fetch('assets/css/coolors.css');
       if (!res.ok) return;
       const text = await res.text();
 
-      const matches = text.match(/#[0-9a-fA-F]{6,8}/g) || [];
-      const uniqueColors = [];
+      // Extract blocks
+      const rootMatch = text.match(/:root\s*\{([^}]+)\}/);
+      const darkMatch = text.match(/\[data-theme="dark"\]\s*\{([^}]+)\}/);
 
-      for (let hex of matches) {
-        let cleanHex = hex.length === 9 ? hex.substring(0, 7) : hex;
-        cleanHex = cleanHex.toLowerCase();
-        if (!uniqueColors.includes(cleanHex)) {
-          uniqueColors.push(cleanHex);
+      const extractColors = (blockText) => {
+        if (!blockText) return [];
+        const matches = blockText.match(/#[0-9a-fA-F]{6,8}/g) || [];
+        const unique = [];
+        for (let hex of matches) {
+          let cleanHex = hex.length === 9 ? hex.substring(0, 7) : hex;
+          cleanHex = cleanHex.toLowerCase();
+          if (!unique.includes(cleanHex)) {
+            unique.push(cleanHex);
+          }
+          if (unique.length >= 3) break;
         }
-        if (uniqueColors.length >= 5) break;
+        return unique;
+      };
+
+      const lightColors = extractColors(rootMatch ? rootMatch[1] : '');
+      const darkColors = extractColors(darkMatch ? darkMatch[1] : '');
+
+      let styleTag = document.getElementById('dynamic-coolors-styles');
+      if (!styleTag) {
+        styleTag = document.createElement('style');
+        styleTag.id = 'dynamic-coolors-styles';
+        document.head.appendChild(styleTag);
       }
 
-      if (uniqueColors.length >= 5) {
-        const [c1, c2, c3, c4, c5] = uniqueColors;
-        const root = document.documentElement;
+      let cssContent = '';
 
-        root.style.setProperty('--c1', c1);
-        root.style.setProperty('--c2', c2);
-        root.style.setProperty('--c3', c3);
-        root.style.setProperty('--c4', c4);
-        root.style.setProperty('--c5', c5);
-
-        root.style.setProperty('--accent-primary', c1);
-        root.style.setProperty('--accent-secondary', c2);
-        root.style.setProperty('--text-primary', c1);
-        root.style.setProperty('--text-secondary', c2);
-        root.style.setProperty('--tag-bg', `${c3}44`);
-        root.style.setProperty('--tag-text', c1);
-        root.style.setProperty('--badge-wp', `${c4}40`);
-        root.style.setProperty('--badge-wp-text', c2);
-        root.style.setProperty('--badge-pub', `${c5}33`);
-        root.style.setProperty('--badge-pub-text', c1);
+      if (lightColors.length >= 3) {
+        const [l1, l2, l3] = lightColors;
+        cssContent += `
+          :root {
+            --c1: ${l1};
+            --c2: ${l2};
+            --c3: ${l3};
+            --accent-primary: ${l1};
+            --accent-secondary: ${l2};
+            --text-primary: ${l1};
+            --text-secondary: ${l2};
+            --tag-bg: ${l3}44;
+            --tag-text: ${l1};
+            --badge-wp: ${l2}25;
+            --badge-wp-text: ${l1};
+            --badge-pub: ${l3}44;
+            --badge-pub-text: ${l2};
+            --glow-1: ${l3}33;
+            --glow-2: ${l2}22;
+          }
+        `;
       }
+
+      if (darkColors.length >= 3) {
+        const [d1, d2, d3] = darkColors;
+        cssContent += `
+          [data-theme="dark"] {
+            --c1: ${d1};
+            --c2: ${d2};
+            --c3: ${d3};
+            --accent-primary: ${d2};
+            --accent-secondary: ${d1};
+            --text-primary: ${d3};
+            --text-secondary: ${d2};
+            --tag-bg: ${d2}33;
+            --tag-text: ${d2};
+            --badge-wp: ${d1}33;
+            --badge-wp-text: ${d2};
+            --badge-pub: ${d3}44;
+            --badge-pub-text: ${d1};
+            --glow-1: ${d2}22;
+            --glow-2: ${d1}22;
+          }
+        `;
+      }
+
+      styleTag.textContent = cssContent;
     } catch (err) {
       console.warn('Coolors palette parsing note:', err);
     }
@@ -173,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { 
           key: 'bluesky', 
           title: 'Bluesky', 
-          svg: `<svg viewBox="0 0 600 530" width="18" height="18" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M135.72 44.03c66.49 49.92 110.5 111.14 144.28 177.16 33.78-66.02 77.79-127.24 144.28-177.16C490.04-5.34 564-31.84 564 51.7c0 144.75-97.12 289.4-264 289.4C133.12 341.1 36 196.45 36 51.7c0-83.54 73.96-57.04 139.72-7.67z"/></svg>` 
+          svg: `<svg viewBox="0 0 16 16" width="17" height="17" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M3.468 1.948C5.303 3.325 7.276 6.118 8 7.616c.725-1.498 2.698-4.29 4.532-5.668C13.855.955 16 .186 16 2.632c0 .489-.28 4.105-.444 4.692-.572 2.04-2.653 2.561-4.504 2.246 3.236.551 4.06 2.375 2.281 4.2-3.376 3.464-4.852-.87-5.23-1.98-.07-.204-.103-.3-.103-.218 0-.081-.033.014-.102.218-.379 1.11-1.855 5.444-5.231 1.98-1.778-1.825-.955-3.65 2.28-4.2-1.85.315-3.932-.205-4.503-2.246C.28 6.737 0 3.12 0 2.632 0 .186 2.145.955 3.468 1.948"/></svg>` 
         },
         { key: 'github', title: 'GitHub', icon: 'fa-brands fa-github' },
         { key: 'linkedin', title: 'LinkedIn', icon: 'fa-brands fa-linkedin' },
@@ -203,6 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Render Research Publications
+  // (rest of code unchanged)
   function renderPublications(papers, filterType = 'all', searchQuery = '') {
     const container = document.getElementById('papersListContainer');
     if (!container) return;
