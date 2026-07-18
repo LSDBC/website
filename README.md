@@ -28,6 +28,20 @@ Then navigate to `http://localhost:8000` in your web browser.
 
 ---
 
+## 🔄 Updating & Publishing Site Changes
+
+Whenever you edit your JSON files in `data/` or add new PDFs to `assets/papers/`, run these commands in your terminal inside `.WEBSITE` to publish your updates online:
+
+```bash
+git add .
+git commit -m "Update website content"
+git push
+```
+
+GitHub Pages will automatically rebuild and update your live website at `https://bianchichignoli.it` within ~1-2 minutes!
+
+---
+
 ## 🌐 Connecting to GitHub & Deploying
 
 ### 1. Create a GitHub Repository
