@@ -311,19 +311,6 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       `).join('');
     }
-
-    // Leadership & Service
-    const leadContainer = document.getElementById('cvLeadership');
-    if (leadContainer && cvData.leadership_and_organizing) {
-      leadContainer.innerHTML = (cvData.leadership_and_organizing || []).map(item => `
-        <div class="timeline-item">
-          <div class="timeline-period">${item.period}</div>
-          <div class="timeline-title">${item.role}</div>
-          <div class="timeline-institution">${item.institution}</div>
-        </div>
-      `).join('');
-    }
-
     // Skills & Languages
     const skillsContainer = document.getElementById('cvSkills');
     if (skillsContainer && cvData.skills_and_languages) {
