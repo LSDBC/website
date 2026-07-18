@@ -129,15 +129,19 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderProfile() {
     document.getElementById('brandName').textContent = profileData.name;
     document.getElementById('heroName').textContent = profileData.name;
-    const heroRoleEl = document.getElementById('heroRole');
-    if (heroRoleEl) {
-      if (Array.isArray(profileData.titles)) {
-        heroRoleEl.innerHTML = profileData.titles.map(t => `<div class="hero-role-line">${t}</div>`).join('');
-      } else {
-        heroRoleEl.textContent = `${profileData.title} @ ${profileData.institution}`;
-      }
+
+    const heroRoleContainer = document.getElementById('heroRole');
+    const heroLocationContainer = document.getElementById('heroLocation');
+    if (profileData.positions && profileData.positions.length > 0) {
+      heroRoleContainer.innerHTML = profileData.positions.map(p => 
+        `<div class="hero-role-item">${p.title} @ <strong>${p.institution}</strong> <span class="hero-role-location"><i class="fa-solid fa-location-dot"></i> ${p.location}</span></div>`
+      ).join('');
+      if (heroLocationContainer) heroLocationContainer.style.display = 'none';
+    } else {
+      heroRoleContainer.textContent = `${profileData.title} @ ${profileData.institution}`;
+      heroLocationContainer.innerHTML = `<i class="fa-solid fa-location-dot"></i> ${profileData.location}`;
     }
-    document.getElementById('heroLocation').textContent = profileData.location;
+
     document.getElementById('footerAuthor').textContent = profileData.name;
     document.getElementById('bioText').textContent = profileData.bio;
     
@@ -156,7 +160,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Contact info
     document.getElementById('contactEmail').textContent = profileData.contact.email;
-    document.getElementById('contactOffice').textContent = `${profileData.contact.office}, ${profileData.department}`;
+    const dept = profileData.department || (profileData.positions && profileData.positions[0] ? profileData.positions[0].department : '');
+    document.getElementById('contactOffice').textContent = dept ? `${profileData.contact.office}, ${dept}` : profileData.contact.office;
     document.getElementById('contactAddress').textContent = profileData.contact.address;
 
     // Affiliation Link Pills

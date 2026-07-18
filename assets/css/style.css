@@ -225,6 +225,24 @@ body {
   margin-top: 0.3rem;
 }
 
+.hero-role-item {
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.hero-role-location {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: normal;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-left: 0.4rem;
+}
+
 .hero-location {
   font-size: 0.9rem;
   color: var(--text-muted);
