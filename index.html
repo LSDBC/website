@@ -53,7 +53,7 @@
   <!-- Hero Profile Banner -->
   <section class="hero-section">
     <div class="container hero-container">
-      <div class="hero-avatar-wrapper">
+      <div class="hero-avatar-wrapper" id="heroAvatarWrapper">
         <div class="avatar-placeholder" id="avatarBox">
           <i class="fa-solid fa-user-graduate"></i>
         </div>
@@ -77,28 +77,12 @@
   <!-- Main Content Body -->
   <main class="container main-content">
 
-    <!-- TAB 1: ABOUT / BIO -->
+    <!-- TAB 1: ABOUT / BIO (Minimal & Essential) -->
     <section id="tab-about" class="tab-pane active">
-      <div class="content-card">
-        <h2>Biography & Research Agenda</h2>
+      <div class="content-card bio-card-minimal">
+        <h2>About</h2>
         <div class="bio-text" id="bioText">
           Loading biography...
-        </div>
-      </div>
-
-      <div class="content-grid-2">
-        <div class="content-card">
-          <h3><i class="fa-solid fa-compass"></i> Primary Fields</h3>
-          <ul class="fields-list" id="primaryFieldsList">
-            <!-- Dynamically populated -->
-          </ul>
-        </div>
-        <div class="content-card">
-          <h3><i class="fa-solid fa-file-pdf"></i> Curriculum Vitae</h3>
-          <p>Download my full curriculum vitae (PDF format).</p>
-          <a href="#" id="cvDownloadBtn" class="btn btn-primary" target="_blank">
-            <i class="fa-solid fa-download"></i> Download Full CV (PDF)
-          </a>
         </div>
       </div>
     </section>
@@ -125,8 +109,15 @@
       </div>
     </section>
 
-    <!-- TAB 3: CV & PRESENTATIONS -->
+    <!-- TAB 3: CV & PRESENTATIONS (Prominent Download CV Button here) -->
     <section id="tab-cv" class="tab-pane">
+      <div class="section-header-bar">
+        <h2>Curriculum Vitae</h2>
+        <a href="#" id="cvDownloadBtn" class="btn btn-primary" target="_blank">
+          <i class="fa-solid fa-file-pdf"></i> Download Full CV (PDF)
+        </a>
+      </div>
+
       <div class="cv-sections-wrapper">
         <div class="content-card">
           <h3><i class="fa-solid fa-briefcase"></i> Current & Past Positions</h3>

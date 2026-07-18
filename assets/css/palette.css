@@ -1,33 +1,50 @@
-/* Global Color Palette Definitions */
+/* =========================================================================
+   PALETTE CONFIGURATION FILE
+   
+   HOW TO UPDATE YOUR PALETTE:
+   1. Go to Coolors.co (or your palette generator) and export as CSS / SCSS.
+   2. Paste your 5 color variables inside :root below.
+   3. Assign them to --c1, --c2, --c3, --c4, --c5 (or name your 5 colors below).
+   The entire website (light & dark mode, badges, links, cards) will update automatically!
+   ========================================================================= */
+
 :root {
-  /* Raw Palette Swatches */
+  /* --- COOLORS PALETTE EXPORT (PASTE DIRECTLY BELOW) --- */
   --dark-amethyst: #301a4b;
   --pacific-blue: #6db1bf;
   --lavender-blush: #ffeaec;
   --cotton-candy: #f39a9d;
   --hunter-green: #3f6c51;
 
-  /* Functional UI Color Mapping (Light Theme) */
+  /* --- AUTOMATIC PALETTE ALIASES --- */
+  /* If you paste --color-1 .. --color-5 from Coolors, they link automatically below! */
+  --c1: var(--color-1, var(--dark-amethyst, #301a4b));  /* Primary Deep Accent */
+  --c2: var(--color-2, var(--pacific-blue, #6db1bf));   /* Secondary Accent / Links */
+  --c3: var(--color-3, var(--lavender-blush, #ffeaec)); /* Soft Background Tint */
+  --c4: var(--color-4, var(--cotton-candy, #f39a9d));   /* Highlight / WP Badge */
+  --c5: var(--color-5, var(--hunter-green, #3f6c51));   /* Sub-text / Pub Badge */
+
+  /* --- LIGHT THEME FUNCTIONAL TOKENS --- */
   --bg-color: #fdfcff;
-  --bg-card: rgba(255, 255, 255, 0.9);
+  --bg-card: rgba(255, 255, 255, 0.92);
   --border-color: rgba(109, 177, 191, 0.35);
   
-  --text-primary: var(--dark-amethyst);
-  --text-secondary: var(--hunter-green);
+  --text-primary: var(--c1);
+  --text-secondary: var(--c5);
   --text-muted: #5e4c73;
 
-  --accent-primary: var(--dark-amethyst);
-  --accent-secondary: var(--pacific-blue);
-  --accent-highlight: var(--cotton-candy);
-  --accent-light: var(--lavender-blush);
+  --accent-primary: var(--c1);
+  --accent-secondary: var(--c2);
+  --accent-highlight: var(--c4);
+  --accent-light: var(--c3);
   
   --tag-bg: rgba(109, 177, 191, 0.18);
-  --tag-text: var(--dark-amethyst);
+  --tag-text: var(--c1);
   
   --badge-wp: rgba(243, 154, 157, 0.25);
   --badge-wp-text: #801d2c;
   --badge-pub: rgba(63, 108, 81, 0.18);
-  --badge-pub-text: var(--hunter-green);
+  --badge-pub-text: var(--c5);
 
   --shadow-sm: 0 2px 8px rgba(48, 26, 75, 0.06);
   --shadow-md: 0 8px 24px rgba(48, 26, 75, 0.12);
@@ -36,25 +53,25 @@
 }
 
 [data-theme="dark"] {
-  /* Functional UI Color Mapping (Dark Theme) */
+  /* --- DARK THEME FUNCTIONAL TOKENS --- */
   --bg-color: #120a1c;
   --bg-card: rgba(26, 15, 41, 0.85);
   --border-color: rgba(109, 177, 191, 0.25);
   
-  --text-primary: var(--lavender-blush);
+  --text-primary: var(--c3);
   --text-secondary: #9ed4de;
   --text-muted: #c2afd9;
 
-  --accent-primary: var(--pacific-blue);
-  --accent-secondary: var(--cotton-candy);
-  --accent-highlight: var(--cotton-candy);
+  --accent-primary: var(--c2);
+  --accent-secondary: var(--c4);
+  --accent-highlight: var(--c4);
   --accent-light: rgba(48, 26, 75, 0.6);
 
   --tag-bg: rgba(109, 177, 191, 0.22);
-  --tag-text: var(--pacific-blue);
+  --tag-text: var(--c2);
 
   --badge-wp: rgba(243, 154, 157, 0.35);
-  --badge-wp-text: var(--cotton-candy);
+  --badge-wp-text: var(--c4);
   --badge-pub: rgba(63, 108, 81, 0.4);
   --badge-pub-text: #8ed6a6;
 

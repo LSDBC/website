@@ -43,7 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
       tabPanes.forEach(p => p.classList.remove('active'));
 
       link.classList.add('active');
-      document.getElementById(`tab-${targetTab}`).classList.add('active');
+      const targetPane = document.getElementById(`tab-${targetTab}`);
+      if (targetPane) targetPane.classList.add('active');
       navMenu.classList.remove('open');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
@@ -79,7 +80,22 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('heroLocation').textContent = profileData.location;
     document.getElementById('footerAuthor').textContent = profileData.name;
     document.getElementById('bioText').textContent = profileData.bio;
-    document.getElementById('cvDownloadBtn').href = profileData.cv_pdf || '#';
+    
+    const cvBtn = document.getElementById('cvDownloadBtn');
+    if (cvBtn) cvBtn.href = profileData.cv_pdf || '#';
+
+    // Avatar / Profile Picture rendering
+    const avatarWrapper = document.getElementById('heroAvatarWrapper');
+    if (avatarWrapper && profileData.avatar) {
+      const img = new Image();
+      img.src = profileData.avatar;
+      img.onload = () => {
+        avatarWrapper.innerHTML = `<img src="${profileData.avatar}" alt="${profileData.name}" class="hero-avatar-img">`;
+      };
+      img.onerror = () => {
+        // Keeps placeholder icon if image does not exist yet
+      };
+    }
 
     // Contact info
     document.getElementById('contactEmail').textContent = profileData.contact.email;
@@ -88,56 +104,58 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Research Field Badges
     const fieldBadges = document.getElementById('fieldBadges');
-    const primaryFieldsList = document.getElementById('primaryFieldsList');
-    fieldBadges.innerHTML = '';
-    primaryFieldsList.innerHTML = '';
+    if (fieldBadges) {
+      fieldBadges.innerHTML = '';
+      (profileData.research_fields || []).forEach(field => {
+        const badge = document.createElement('span');
+        badge.className = 'badge-tag';
+        badge.textContent = field;
+        fieldBadges.appendChild(badge);
+      });
+    }
 
-    profileData.research_fields.forEach(field => {
-      const badge = document.createElement('span');
-      badge.className = 'badge-tag';
-      badge.textContent = field;
-      fieldBadges.appendChild(badge);
-
-      const li = document.createElement('li');
-      li.textContent = field;
-      primaryFieldsList.appendChild(li);
-    });
-
-    // Social Links (Explicitly excluding Orcid & Scholar per user request)
+    // Social Links (Official Bluesky & Strava SVG icons)
     const socialLinks = document.getElementById('socialLinks');
-    socialLinks.innerHTML = '';
-    
-    const socialMap = [
-      { 
-        key: 'bluesky', 
-        title: 'Bluesky', 
-        svg: `<svg viewBox="0 0 560 500" width="16" height="16" fill="currentColor"><path d="M180 142c-29-57-95-103-146-103C15 39 0 59 0 85c0 62 49 191 146 191 80 0 108-30 134-80 26 50 54 80 134 80 97 0 146-129 146-191 0-26-15-46-34-46-51 0-117 46-146 103-34 68-45 106-60 106s-26-38-60-106z"/></svg>` 
-      },
-      { key: 'github', title: 'GitHub', icon: 'fa-brands fa-github' },
-      { key: 'linkedin', title: 'LinkedIn', icon: 'fa-brands fa-linkedin' },
-      { key: 'ssrn', title: 'SSRN', icon: 'fa-solid fa-graduation-cap' }
-    ];
-
-    socialMap.forEach(item => {
-      if (profileData.social && profileData.social[item.key]) {
-        const a = document.createElement('a');
-        a.className = 'social-btn';
-        a.href = profileData.social[item.key];
-        a.target = '_blank';
-        a.title = item.title;
-        if (item.svg) {
-          a.innerHTML = item.svg;
-        } else {
-          a.innerHTML = `<i class="${item.icon}"></i>`;
+    if (socialLinks) {
+      socialLinks.innerHTML = '';
+      
+      const socialMap = [
+        { 
+          key: 'bluesky', 
+          title: 'Bluesky', 
+          svg: `<svg role="img" viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M12 10.8c-1.087-2.114-4.046-6.053-7.498-7.928C2.557 1.722 0 3.235 0 7.202c0 4.195 2.1 11.233 8.358 13.064 6.772 1.98 3.642-4.148 3.642-4.148s-3.13 6.128 3.642 4.148C21.9 18.435 24 11.397 24 7.202c0-3.967-2.557-5.48-4.502-4.33-3.452 1.875-6.411 5.814-7.498 7.928Z"/></svg>` 
+        },
+        { key: 'github', title: 'GitHub', icon: 'fa-brands fa-github' },
+        { key: 'linkedin', title: 'LinkedIn', icon: 'fa-brands fa-linkedin' },
+        { 
+          key: 'strava', 
+          title: 'Strava', 
+          svg: `<svg role="img" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7.924 15.65h4.172"/></svg>` 
         }
-        socialLinks.appendChild(a);
-      }
-    });
+      ];
+
+      socialMap.forEach(item => {
+        if (profileData.social && profileData.social[item.key]) {
+          const a = document.createElement('a');
+          a.className = 'social-btn';
+          a.href = profileData.social[item.key];
+          a.target = '_blank';
+          a.title = item.title;
+          if (item.svg) {
+            a.innerHTML = item.svg;
+          } else {
+            a.innerHTML = `<i class="${item.icon}"></i>`;
+          }
+          socialLinks.appendChild(a);
+        }
+      });
+    }
   }
 
   // Render Research Publications
   function renderPublications(papers, filterType = 'all', searchQuery = '') {
     const container = document.getElementById('papersListContainer');
+    if (!container) return;
     container.innerHTML = '';
 
     const filtered = papers.filter(paper => {

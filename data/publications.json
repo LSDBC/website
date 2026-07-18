@@ -1,28 +1,18 @@
 [
   {
-    "id": "wp-2026-01",
-    "title": "Monetary Policy Transmission in Nonclearing Labor & Capital Markets",
-    "authors": ["Lorenzo Bianchi Chignoli"],
+    "id": "2026_mres",
+    "title": "A New Old Keynesian Model",
+    "authors": [
+      "Lorenzo Bianchi Chignoli"
+    ],
     "type": "working_paper",
     "year": 2026,
-    "status": "Working Paper, Universitat Pompeu Fabra",
-    "jel": ["E52", "E44", "E24"],
-    "abstract": "This paper investigates the supply-side transmission channels of monetary policy when input and labor markets do not instantaneously clear. Using a quantitative New Keynesian framework augmented with market search frictions, I show that interest rate shocks induce asymmetric real wage and price adjustments.",
-    "pdf": "assets/papers/CV_LBC.pdf",
-    "code_repo": "https://github.com/LSDBC",
-    "bibtex": "@techreport{bianchichignoli2026nonclearing,\n  title={Monetary Policy Transmission in Nonclearing Labor & Capital Markets},\n  author={Bianchi Chignoli, Lorenzo},\n  year={2026},\n  institution={Universitat Pompeu Fabra Working Paper}\n}"
-  },
-  {
-    "id": "wp-2025-01",
-    "title": "Deep Learning for High-Dimensional Macrofinance and Monetary DSGE Models",
-    "authors": ["Lorenzo Bianchi Chignoli"],
-    "type": "working_paper",
-    "year": 2025,
-    "status": "Working Paper",
-    "jel": ["C63", "E37", "G12"],
-    "abstract": "We propose a neural network architecture to solve non-linear dynamic stochastic general equilibrium (DSGE) models with heterogeneous agents and aggregate shocks. The method overcomes the curse of dimensionality and facilitates real-time policy evaluation.",
-    "pdf": "assets/papers/CV_LBC.pdf",
-    "code_repo": "https://github.com/LSDBC",
-    "bibtex": "@techreport{bianchichignoli2025deeplearning,\n  title={Deep Learning for High-Dimensional Macrofinance and Monetary DSGE Models},\n  author={Bianchi Chignoli, Lorenzo},\n  year={2025}\n}"
+    "status": "",
+    "jel": [
+      ""
+    ],
+    "abstract": "The theoretical behavior of aggregate markups in New Keynesian models is partly at odds with their observed cyclicality in the data, so that their explanatory power relies extensively on exogenous markup shocks. To reconcile theoretical predictions and empirical evidence, I develop a `New Old Keynesian' model. This New Keynesian adaptation of the Barro-Grossman model of rationing-through-nominal-rigidities allows fixprice firms to ration excess demand when high marginal costs erode profitability. Rationing induces a forced reallocation of expenditure toward high-margin sectors, generating a first-order welfare loss from price dispersion. I contend that rationing has the potential to improve the New Keynesian model from a business cycle accounting perspective. By approximating the policy functions with a deep neural network, I demonstrate that markups can be countercyclical with respect to welfare-relevant output while appearing procyclical with respect to measured output, as rationing induces a decoupling between the two. I suggest an empirical test to estimate the extent of rationing through micro data on sales. Last, I consider the labor wedge as microfounded by rationing, and extend the model to non-homothetic utility with preference for quality.",
+    "pdf": "assets/papers/2026_mres.pdf",
+    "bibtex": "@misc{2026_chignoli, author = {Bianchi Chignoli, Lorenzo}, title = { title = {A New Old Keynesian Model}, howpublished = {MRes, Universitat Pompeu Fabra}, year = {2026}, month = {07} }"
   }
 ]

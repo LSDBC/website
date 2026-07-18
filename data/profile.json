@@ -15,13 +15,13 @@
   "social": {
     "github": "https://github.com/LSDBC",
     "linkedin": "https://linkedin.com",
-    "bluesky": "https://bsky.app/profile/bianchichignoli.it"
+    "bluesky": "https://bsky.app/profile/bianchichignoli.it",
+    "strava": "https://www.strava.com/athletes/lorenzo_bianchi_chignoli"
   },
   "research_fields": [
     "New Keynesian Theory",
     "Macrofinance",
     "Monetary Policy Transmission",
-    "Deep Learning in Economics",
-    "Nonclearing Markets"
+    "Deep Learning in Economics"
   ]
 }
