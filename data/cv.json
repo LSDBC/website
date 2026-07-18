@@ -7,20 +7,14 @@
       "location": "Rome, Italy"
     },
     {
-      "role": "Teaching Assistant (Macroeconomics I & II, Intro to Macro)",
-      "institution": "Universitat Pompeu Fabra",
-      "period": "2025 – Present",
-      "location": "Barcelona, Spain"
-    },
-    {
       "role": "Visiting Student",
-      "institution": "INET Oxford, Oxford Martin School, University of Oxford",
+      "institution": "INET, University of Oxford",
       "period": "2024",
       "location": "Oxford, UK"
     },
     {
-      "role": "Visiting Scholar in Financial Modeling",
-      "institution": "New School for Social Research (Supervisor: Clara E. Mattei)",
+      "role": "Visiting Scholar",
+      "institution": "New School for Social Research",
       "period": "2024",
       "location": "New York City, USA"
     },
@@ -105,8 +99,20 @@
     }
   ],
   "skills_and_languages": {
-    "programming": ["R (advanced)", "Python (advanced)", "Matlab (intermediate)", "Stata (intermediate)", "LaTeX", "Markdown"],
-    "languages": ["Italian (native)", "English (C2 - IELTS 8.0)", "German (B1)", "Spanish (B1)"]
+    "programming": [
+      "R (advanced)",
+      "Python (advanced)",
+      "Matlab (intermediate)",
+      "Stata (intermediate)",
+      "LaTeX",
+      "Markdown"
+    ],
+    "languages": [
+      "Italian (native)",
+      "English (C2 - IELTS 8.0)",
+      "German (B1)",
+      "Spanish (B1)"
+    ]
   },
   "awards": [
     {
@@ -125,16 +131,6 @@
       "year": "2024"
     },
     {
-      "title": "IUSS Research Grant (€2,200)",
-      "organization": "IUSS Pavia",
-      "year": "2024"
-    },
-    {
-      "title": "Collegio Ghislieri International Scholarship (€1,500)",
-      "organization": "Ghislieri College",
-      "year": "2024"
-    },
-    {
       "title": "Seasonal School Merit Award",
       "organization": "Sant’Anna School for Advanced Studies / Fondazione Il Talento all’Opera",
       "year": "2023"
@@ -143,21 +139,6 @@
       "title": "IUSS Knowledge & Sustainable Growth Research Grant (€3,000)",
       "organization": "IUSS Pavia",
       "year": "2023"
-    },
-    {
-      "title": "Rete di Idee XI ed. 2nd Place in Humanities & Premio Bruno Rossini",
-      "organization": "RIASISSU & Fondazione Ghislieri",
-      "year": "2023"
-    },
-    {
-      "title": "Rete di Idee X ed. 1st Place in Social Sciences",
-      "organization": "RIASISSU",
-      "year": "2022"
-    },
-    {
-      "title": "JGU Scholarship (€2,200) & Erasmus+ Scholarship (€2,500)",
-      "organization": "DAAD & University of Pavia",
-      "year": "2022"
     },
     {
       "title": "5-Year Full Merit Scholarship",

@@ -27,16 +27,45 @@ document.addEventListener('DOMContentLoaded', () => {
   // Automatic Zero-Friction Palette Engine
   async function initCoolorsPaletteEngine() {
     try {
-      const res = await fetch('assets/css/palette.css');
-      if (!res.ok) return;
-      const text = await res.text();
+      let lightColors = [];
+      let darkColors = [];
 
-      // Check if user separated light vs dark with a comment like /* DARK */ or /* DARK MODE */
-      const darkSplit = text.split(/\/\*\s*DARK.*?\*\//i);
-      const lightText = darkSplit[0] || text;
-      const darkText = darkSplit[1] || '';
+      // 1. Try reading directly from document.styleSheets (Synchronous, works in file:// and http://)
+      for (let sheet of document.styleSheets) {
+        if (sheet.href && sheet.href.includes('palette.css')) {
+          try {
+            const rules = sheet.cssRules || sheet.rules;
+            for (let rule of rules) {
+              if (rule.selectorText === ':root' || rule.selectorText === 'html') {
+                lightColors = extractColorsFromRuleText(rule.cssText);
+              } else if (rule.selectorText === '[data-theme="dark"]') {
+                darkColors = extractColorsFromRuleText(rule.cssText);
+              }
+            }
+          } catch (e) {
+            // Fallthrough to fetch
+          }
+        }
+      }
 
-      const extractColors = (str) => {
+      // 2. Fallback to fetch if document.styleSheets didn't return colors
+      if (lightColors.length < 3) {
+        try {
+          const res = await fetch('assets/css/palette.css');
+          if (res.ok) {
+            const text = await res.text();
+            const rootMatch = text.match(/:root\s*\{([^}]+)\}/);
+            const darkMatch = text.match(/\[data-theme="dark"\]\s*\{([^}]+)\}/);
+
+            lightColors = extractColorsFromRuleText(rootMatch ? rootMatch[1] : text);
+            darkColors = extractColorsFromRuleText(darkMatch ? darkMatch[1] : '');
+          }
+        } catch (e) {
+          // Ignore fetch errors
+        }
+      }
+
+      function extractColorsFromRuleText(str) {
         if (!str) return [];
         const matches = str.match(/#[0-9a-fA-F]{6,8}\b/g) || [];
         const unique = [];
@@ -49,10 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
           if (unique.length >= 3) break;
         }
         return unique;
-      };
-
-      const lightColors = extractColors(lightText);
-      const darkColors = extractColors(darkText);
+      }
 
       let styleTag = document.getElementById('dynamic-coolors-styles');
       if (!styleTag) {
@@ -103,18 +129,18 @@ document.addEventListener('DOMContentLoaded', () => {
               --bg-color: #120a1c;
               --bg-card: rgba(26, 15, 41, 0.85);
               --border-color: ${d2}35;
-              --text-primary: ${d3};
+              --text-primary: ${d1};
               --text-secondary: ${d2};
               --text-muted: ${d2}aa;
               --accent-primary: ${d2};
               --accent-secondary: ${d1};
               --accent-highlight: ${d1};
-              --accent-light: ${d1}44;
+              --accent-light: ${d3}44;
               --tag-bg: ${d2}33;
-              --tag-text: ${d2};
+              --tag-text: ${d1};
               --badge-wp: ${d1}35;
-              --badge-wp-text: ${d3};
-              --badge-pub: ${d3}33;
+              --badge-wp-text: ${d1};
+              --badge-pub: ${d3}44;
               --badge-pub-text: ${d2};
               --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
               --shadow-md: 0 8px 28px rgba(0, 0, 0, 0.6);
