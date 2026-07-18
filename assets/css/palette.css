@@ -1,70 +1,71 @@
 /* =========================================================================
    PALETTE MAPPING FILE
-   Dynamic component mappings for Light and Dark themes using color-mix().
+   Strictly uses ONLY the 3 colors defined in light.css and dark.css.
+   No outside colors, hardcoded hexes, or extra shades are added.
    ========================================================================= */
 
 :root {
-  --c1-final: var(--c1, #301a4b);
-  --c2-final: var(--c2, #6db1bf);
-  --c3-final: var(--c3, #ffeaec);
+  --c1-final: var(--c1, #283618);
+  --c2-final: var(--c2, #606c38);
+  --c3-final: var(--c3, #fefae0);
 
-  /* Light Theme Surfaces & Text */
-  --bg-color: #fdfcff;
-  --bg-card: rgba(255, 255, 255, 0.92);
-  --border-color: color-mix(in srgb, var(--c2-final) 30%, transparent);
+  /* Light Theme Surfaces & Text (100% derived from c1, c2, c3) */
+  --bg-color: var(--c3-final);
+  --bg-card: var(--c3-final);
+  --border-color: var(--c2-final);
   
   --text-primary: var(--c1-final);
   --text-secondary: var(--c2-final);
-  --text-muted: color-mix(in srgb, var(--c1-final) 60%, transparent);
+  --text-muted: var(--c2-final);
 
   --accent-primary: var(--c1-final);
   --accent-secondary: var(--c2-final);
   --accent-highlight: var(--c2-final);
   --accent-light: var(--c3-final);
   
-  --tag-bg: color-mix(in srgb, var(--c3-final) 55%, transparent);
-  --tag-text: var(--c1-final);
+  --tag-bg: var(--c2-final);
+  --tag-text: var(--c3-final);
   
-  --badge-wp: color-mix(in srgb, var(--c2-final) 25%, transparent);
-  --badge-wp-text: var(--c1-final);
-  --badge-pub: color-mix(in srgb, var(--c3-final) 65%, transparent);
-  --badge-pub-text: var(--c2-final);
+  --badge-wp: var(--c2-final);
+  --badge-wp-text: var(--c3-final);
+  --badge-pub: var(--c1-final);
+  --badge-pub-text: var(--c3-final);
 
-  --shadow-sm: 0 2px 8px color-mix(in srgb, var(--c1-final) 8%, transparent);
-  --shadow-md: 0 8px 24px color-mix(in srgb, var(--c1-final) 15%, transparent);
-  --glow-1: color-mix(in srgb, var(--c2-final) 25%, transparent);
-  --glow-2: color-mix(in srgb, var(--c3-final) 30%, transparent);
+  --shadow-sm: none;
+  --shadow-md: none;
+  --glow-1: var(--c2-final);
+  --glow-2: var(--c3-final);
 }
 
 [data-theme="dark"] {
-  --dc1-final: var(--dark-c1, #d496a7);
-  --dc2-final: var(--dark-c2, #8eedf7);
-  --dc3-final: var(--dark-c3, #a1cdf1);
+  --dc1-final: var(--dark-c1, #ccdad1);
+  --dc2-final: var(--dark-c2, #9caea9);
+  --dc3-final: var(--dark-c3, #788585);
 
-  /* Dark Theme Surfaces & Text */
-  --bg-color: color-mix(in srgb, var(--dc1-final) 18%, #080c08);
-  --bg-card: color-mix(in srgb, var(--dc1-final) 22%, rgba(15, 20, 15, 0.85));
-  --border-color: color-mix(in srgb, var(--dc2-final) 30%, transparent);
+  /* Dark Theme Surfaces & Text (100% derived from dc1, dc2, dc3) */
+  --bg-color: var(--dc3-final);
+  --bg-card: var(--dc3-final);
+  --border-color: var(--dc2-final);
   
-  --text-primary: var(--dc3-final);
+  --text-primary: var(--dc1-final);
   --text-secondary: var(--dc2-final);
-  --text-muted: color-mix(in srgb, var(--dc3-final) 65%, transparent);
+  --text-muted: var(--dc2-final);
 
   --accent-primary: var(--dc2-final);
   --accent-secondary: var(--dc1-final);
   --accent-highlight: var(--dc1-final);
-  --accent-light: color-mix(in srgb, var(--dc1-final) 35%, transparent);
+  --accent-light: var(--dc3-final);
 
-  --tag-bg: color-mix(in srgb, var(--dc2-final) 25%, transparent);
-  --tag-text: var(--dc2-final);
+  --tag-bg: var(--dc2-final);
+  --tag-text: var(--dc3-final);
 
-  --badge-wp: color-mix(in srgb, var(--dc1-final) 30%, transparent);
+  --badge-wp: var(--dc1-final);
   --badge-wp-text: var(--dc3-final);
-  --badge-pub: color-mix(in srgb, var(--dc2-final) 25%, transparent);
-  --badge-pub-text: var(--dc2-final);
+  --badge-pub: var(--dc2-final);
+  --badge-pub-text: var(--dc3-final);
 
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 8px 28px rgba(0, 0, 0, 0.6);
-  --glow-1: color-mix(in srgb, var(--dc2-final) 20%, transparent);
-  --glow-2: color-mix(in srgb, var(--dc1-final) 20%, transparent);
+  --shadow-sm: none;
+  --shadow-md: none;
+  --glow-1: var(--dc2-final);
+  --glow-2: var(--dc1-final);
 }

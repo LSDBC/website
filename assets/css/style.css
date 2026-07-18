@@ -59,13 +59,13 @@ body {
   top: 0;
   z-index: 100;
   backdrop-filter: blur(14px);
-  background-color: rgba(253, 252, 255, 0.85);
+  background-color: var(--bg-card);
   border-bottom: 1px solid var(--border-color);
   transition: background-color 0.3s ease;
 }
 
 [data-theme="dark"] .navbar-header {
-  background-color: rgba(18, 10, 28, 0.85);
+  background-color: var(--bg-card);
 }
 
 .navbar-container {
@@ -119,7 +119,7 @@ body {
 
 .nav-link:hover {
   color: var(--accent-secondary);
-  background-color: rgba(109, 177, 191, 0.12);
+  background-color: var(--tag-bg);
 }
 
 .nav-link.active {
