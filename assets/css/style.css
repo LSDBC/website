@@ -26,7 +26,8 @@ body {
 .bg-glow {
   position: fixed;
   border-radius: 50%;
-  filter: blur(120px);
+  filter: blur(180px);
+  opacity: 0.08;
   z-index: -1;
   pointer-events: none;
 }
