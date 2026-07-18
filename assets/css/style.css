@@ -353,11 +353,10 @@ body {
   display: none;
   opacity: 0;
   transition: opacity 0.3s ease;
-  padding-top: 2.5rem;
 }
 
-#tab-about.tab-pane {
-  padding-top: 0;
+.tab-pane:not(#tab-about) {
+  padding-top: 2.5rem;
 }
 
 .tab-pane.active {
