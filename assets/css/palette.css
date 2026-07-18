@@ -1,36 +1,25 @@
+@import 'coolors.css';
+
 /* =========================================================================
-   PALETTE CONFIGURATION FILE
-   
-   HOW TO UPDATE YOUR PALETTE:
-   1. Go to Coolors.co (or your palette generator) and export as CSS / SCSS.
-   2. Paste your 5 color variables inside :root below.
-   3. Assign them to --c1, --c2, --c3, --c4, --c5 (or name your 5 colors below).
-   The entire website (light & dark mode, badges, links, cards) will update automatically!
+   FUNCTIONAL UI PALETTE TOKEN SYSTEM
+   Automatic fallback mapping for --c1 .. --c5 parsed from coolors.css
    ========================================================================= */
 
 :root {
-  /* --- COOLORS PALETTE EXPORT (PASTE DIRECTLY BELOW) --- */
-  --dark-amethyst: #301a4b;
-  --pacific-blue: #6db1bf;
-  --lavender-blush: #ffeaec;
-  --cotton-candy: #f39a9d;
-  --hunter-green: #3f6c51;
+  /* Default fallbacks if JS parser is starting up */
+  --c1: #301a4b;
+  --c2: #6db1bf;
+  --c3: #ffeaec;
+  --c4: #f39a9d;
+  --c5: #3f6c51;
 
-  /* --- AUTOMATIC PALETTE ALIASES --- */
-  /* If you paste --color-1 .. --color-5 from Coolors, they link automatically below! */
-  --c1: var(--color-1, var(--dark-amethyst, #301a4b));  /* Primary Deep Accent */
-  --c2: var(--color-2, var(--pacific-blue, #6db1bf));   /* Secondary Accent / Links */
-  --c3: var(--color-3, var(--lavender-blush, #ffeaec)); /* Soft Background Tint */
-  --c4: var(--color-4, var(--cotton-candy, #f39a9d));   /* Highlight / WP Badge */
-  --c5: var(--color-5, var(--hunter-green, #3f6c51));   /* Sub-text / Pub Badge */
-
-  /* --- LIGHT THEME FUNCTIONAL TOKENS --- */
+  /* Functional Light Mode Mapping */
   --bg-color: #fdfcff;
   --bg-card: rgba(255, 255, 255, 0.92);
   --border-color: rgba(109, 177, 191, 0.35);
   
   --text-primary: var(--c1);
-  --text-secondary: var(--c5);
+  --text-secondary: var(--c2);
   --text-muted: #5e4c73;
 
   --accent-primary: var(--c1);
@@ -53,13 +42,13 @@
 }
 
 [data-theme="dark"] {
-  /* --- DARK THEME FUNCTIONAL TOKENS --- */
+  /* Functional Dark Mode Mapping */
   --bg-color: #120a1c;
   --bg-card: rgba(26, 15, 41, 0.85);
   --border-color: rgba(109, 177, 191, 0.25);
   
-  --text-primary: var(--c3);
-  --text-secondary: #9ed4de;
+  --text-primary: #f5ebfa;
+  --text-secondary: var(--c2);
   --text-muted: #c2afd9;
 
   --accent-primary: var(--c2);

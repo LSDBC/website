@@ -24,6 +24,51 @@ document.addEventListener('DOMContentLoaded', () => {
       : '<i class="fa-solid fa-moon"></i>';
   }
 
+  // Coolors Automatic Palette Parser
+  async function initCoolorsPaletteEngine() {
+    try {
+      const res = await fetch('assets/css/coolors.css');
+      if (!res.ok) return;
+      const text = await res.text();
+
+      const matches = text.match(/#[0-9a-fA-F]{6,8}/g) || [];
+      const uniqueColors = [];
+
+      for (let hex of matches) {
+        let cleanHex = hex.length === 9 ? hex.substring(0, 7) : hex;
+        cleanHex = cleanHex.toLowerCase();
+        if (!uniqueColors.includes(cleanHex)) {
+          uniqueColors.push(cleanHex);
+        }
+        if (uniqueColors.length >= 5) break;
+      }
+
+      if (uniqueColors.length >= 5) {
+        const [c1, c2, c3, c4, c5] = uniqueColors;
+        const root = document.documentElement;
+
+        root.style.setProperty('--c1', c1);
+        root.style.setProperty('--c2', c2);
+        root.style.setProperty('--c3', c3);
+        root.style.setProperty('--c4', c4);
+        root.style.setProperty('--c5', c5);
+
+        root.style.setProperty('--accent-primary', c1);
+        root.style.setProperty('--accent-secondary', c2);
+        root.style.setProperty('--text-primary', c1);
+        root.style.setProperty('--text-secondary', c2);
+        root.style.setProperty('--tag-bg', `${c3}44`);
+        root.style.setProperty('--tag-text', c1);
+        root.style.setProperty('--badge-wp', `${c4}40`);
+        root.style.setProperty('--badge-wp-text', c2);
+        root.style.setProperty('--badge-pub', `${c5}33`);
+        root.style.setProperty('--badge-pub-text', c1);
+      }
+    } catch (err) {
+      console.warn('Coolors palette parsing note:', err);
+    }
+  }
+
   // Mobile Menu Toggle
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
   const navMenu = document.getElementById('navMenu');
@@ -53,6 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Dynamic Data Loading Engine
   async function loadData() {
     try {
+      await initCoolorsPaletteEngine();
+
       const [profileRes, pubRes, cvRes] = await Promise.all([
         fetch('data/profile.json'),
         fetch('data/publications.json'),
