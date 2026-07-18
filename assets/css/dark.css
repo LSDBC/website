@@ -2,40 +2,44 @@
    /* =========================================================================
    PASTE DARK THEME COOLORS OUTPUT DIRECTLY BELOW THIS LINE
    ========================================================================= */
+
+
    /* CSS HEX */
-   --silver: #b9b0b0ff;
-   --taupe: #988881ff;
-   --taupe-2: #504339ff;
+   --platinum: #ebebebff;
+   --silver: #b6aba5ff;
+   --black: #000000ff;
 
    /* CSS HSL */
-   --silver: hsla(0, 6%, 71%, 1);
-   --taupe: hsla(18, 10%, 55%, 1);
-   --taupe-2: hsla(26, 17%, 27%, 1);
+   --platinum: hsla(0, 0%, 92%, 1);
+   --silver: hsla(21, 10%, 68%, 1);
+   --black: hsla(0, 0%, 0%, 1);
 
    /* SCSS HEX */
-   $silver: #b9b0b0ff;
-   $taupe: #988881ff;
-   $taupe-2: #504339ff;
+   $platinum: #ebebebff;
+   $silver: #b6aba5ff;
+   $black: #000000ff;
 
    /* SCSS HSL */
-   $silver: hsla(0, 6%, 71%, 1);
-   $taupe: hsla(18, 10%, 55%, 1);
-   $taupe-2: hsla(26, 17%, 27%, 1);
+   $platinum: hsla(0, 0%, 92%, 1);
+   $silver: hsla(21, 10%, 68%, 1);
+   $black: hsla(0, 0%, 0%, 1);
 
    /* SCSS RGB */
-   $silver: rgba(185, 176, 176, 1);
-   $taupe: rgba(152, 136, 129, 1);
-   $taupe-2: rgba(80, 67, 57, 1);
+   $platinum: rgba(235, 235, 235, 1);
+   $silver: rgba(182, 171, 165, 1);
+   $black: rgba(0, 0, 0, 1);
 
    /* SCSS Gradient */
-   $gradient-top: linear-gradient(0deg, #b9b0b0ff, #988881ff, #504339ff);
-   $gradient-right: linear-gradient(90deg, #b9b0b0ff, #988881ff, #504339ff);
-   $gradient-bottom: linear-gradient(180deg, #b9b0b0ff, #988881ff, #504339ff);
-   $gradient-left: linear-gradient(270deg, #b9b0b0ff, #988881ff, #504339ff);
-   $gradient-top-right: linear-gradient(45deg, #b9b0b0ff, #988881ff, #504339ff);
-   $gradient-bottom-right: linear-gradient(135deg, #b9b0b0ff, #988881ff, #504339ff);
-   $gradient-top-left: linear-gradient(225deg, #b9b0b0ff, #988881ff, #504339ff);
-   $gradient-bottom-left: linear-gradient(315deg, #b9b0b0ff, #988881ff, #504339ff);
-   $gradient-radial: radial-gradient(#b9b0b0ff, #988881ff, #504339ff);
+   $gradient-top: linear-gradient(0deg, #ebebebff, #b6aba5ff, #000000ff);
+   $gradient-right: linear-gradient(90deg, #ebebebff, #b6aba5ff, #000000ff);
+   $gradient-bottom: linear-gradient(180deg, #ebebebff, #b6aba5ff, #000000ff);
+   $gradient-left: linear-gradient(270deg, #ebebebff, #b6aba5ff, #000000ff);
+   $gradient-top-right: linear-gradient(45deg, #ebebebff, #b6aba5ff, #000000ff);
+   $gradient-bottom-right: linear-gradient(135deg, #ebebebff, #b6aba5ff, #000000ff);
+   $gradient-top-left: linear-gradient(225deg, #ebebebff, #b6aba5ff, #000000ff);
+   $gradient-bottom-left: linear-gradient(315deg, #ebebebff, #b6aba5ff, #000000ff);
+   $gradient-radial: radial-gradient(#ebebebff, #b6aba5ff, #000000ff);
+
+
    /* ========================================================================= */
 }
