@@ -24,165 +24,58 @@ document.addEventListener('DOMContentLoaded', () => {
       : '<i class="fa-solid fa-moon"></i>';
   }
 
-  // Automatic Zero-Friction Palette Engine
-  async function initCoolorsPaletteEngine() {
+  // Automatic Native StyleSheet Palette Parser (CORS-safe for file:// and http://)
+  function initCoolorsPaletteEngine() {
     try {
-      let lightColors = [];
-      let darkColors = [];
+      let lightVals = [];
+      let darkVals = [];
 
-      // 1. Try reading directly from document.styleSheets (Synchronous, works in file:// and http://)
       for (let sheet of document.styleSheets) {
-        if (sheet.href && sheet.href.includes('palette.css')) {
-          try {
-            const rules = sheet.cssRules || sheet.rules;
+        try {
+          if (!sheet.href || sheet.href.includes('palette.css')) {
+            const rules = sheet.cssRules || sheet.rules || [];
             for (let rule of rules) {
-              if (rule.selectorText === ':root' || rule.selectorText === 'html') {
-                lightColors = extractColorsFromRuleText(rule.cssText);
-              } else if (rule.selectorText === '[data-theme="dark"]') {
-                darkColors = extractColorsFromRuleText(rule.cssText);
+              if (rule.selectorText === ':root') {
+                const text = rule.cssText || '';
+                const matches = text.match(/(#[0-9a-fA-F]{3,8}|hsla?\([^)]+\))/g) || [];
+                lightVals = [...new Set(matches.map(m => m.length === 9 ? m.substring(0, 7) : m))].slice(0, 3);
+              }
+              if (rule.selectorText === '[data-theme="dark"]') {
+                const text = rule.cssText || '';
+                const matches = text.match(/(#[0-9a-fA-F]{3,8}|hsla?\([^)]+\))/g) || [];
+                darkVals = [...new Set(matches.map(m => m.length === 9 ? m.substring(0, 7) : m))].slice(0, 3);
               }
             }
-          } catch (e) {
-            // Fallthrough to fetch
-          }
-        }
-      }
-
-      // 2. Fallback to fetch if document.styleSheets didn't return colors
-      if (lightColors.length < 3) {
-        try {
-          const res = await fetch('assets/css/palette.css');
-          if (res.ok) {
-            const text = await res.text();
-            const rootMatch = text.match(/:root\s*\{([^}]+)\}/);
-            const darkMatch = text.match(/\[data-theme="dark"\]\s*\{([^}]+)\}/);
-
-            lightColors = extractColorsFromRuleText(rootMatch ? rootMatch[1] : text);
-            darkColors = extractColorsFromRuleText(darkMatch ? darkMatch[1] : '');
           }
         } catch (e) {
-          // Ignore fetch errors
+          // Ignore cross-domain sheets if any
         }
       }
 
-      function extractColorsFromRuleText(str) {
-        if (!str) return [];
-        const matches = str.match(/#[0-9a-fA-F]{6,8}\b/g) || [];
-        const unique = [];
-        for (let hex of matches) {
-          let cleanHex = hex.length === 9 ? hex.substring(0, 7) : hex;
-          cleanHex = cleanHex.toLowerCase();
-          if (!unique.includes(cleanHex)) {
-            unique.push(cleanHex);
-          }
-          if (unique.length >= 3) break;
-        }
-        return unique;
+      const root = document.documentElement;
+
+      if (lightVals.length >= 3) {
+        const [l1, l2, l3] = lightVals;
+        root.style.setProperty('--c1-final', l1);
+        root.style.setProperty('--c2-final', l2);
+        root.style.setProperty('--c3-final', l3);
+        root.style.setProperty('--text-primary', l1);
+        root.style.setProperty('--accent-primary', l1);
+        root.style.setProperty('--accent-secondary', l2);
+        root.style.setProperty('--border-color', `${l2}40`);
       }
 
-      let styleTag = document.getElementById('dynamic-coolors-styles');
-      if (!styleTag) {
-        styleTag = document.createElement('style');
-        styleTag.id = 'dynamic-coolors-styles';
-        document.head.appendChild(styleTag);
+      if (darkVals.length >= 3) {
+        const [d1, d2, d3] = darkVals;
+        root.style.setProperty('--dark-c1', d1);
+        root.style.setProperty('--dark-c2', d2);
+        root.style.setProperty('--dark-c3', d3);
+        root.style.setProperty('--dc1-final', d1);
+        root.style.setProperty('--dc2-final', d2);
+        root.style.setProperty('--dc3-final', d3);
       }
-
-      let cssContent = '';
-
-      if (lightColors.length >= 3) {
-        const [l1, l2, l3] = lightColors;
-        cssContent += `
-          :root {
-            --c1: ${l1};
-            --c2: ${l2};
-            --c3: ${l3};
-            --bg-color: #fdfcff;
-            --bg-card: rgba(255, 255, 255, 0.92);
-            --border-color: ${l2}35;
-            --text-primary: ${l1};
-            --text-secondary: ${l2};
-            --text-muted: ${l2}aa;
-            --accent-primary: ${l1};
-            --accent-secondary: ${l2};
-            --accent-highlight: ${l2};
-            --accent-light: ${l3};
-            --tag-bg: ${l3}88;
-            --tag-text: ${l1};
-            --badge-wp: ${l2}25;
-            --badge-wp-text: ${l1};
-            --badge-pub: ${l3}66;
-            --badge-pub-text: ${l2};
-            --shadow-sm: 0 2px 8px ${l1}0f;
-            --shadow-md: 0 8px 24px ${l1}1a;
-            --glow-1: ${l2}25;
-            --glow-2: ${l3}33;
-          }
-        `;
-
-        if (darkColors.length >= 3) {
-          const [d1, d2, d3] = darkColors;
-          cssContent += `
-            [data-theme="dark"] {
-              --c1: ${d1};
-              --c2: ${d2};
-              --c3: ${d3};
-              --bg-color: #120a1c;
-              --bg-card: rgba(26, 15, 41, 0.85);
-              --border-color: ${d2}35;
-              --text-primary: ${d1};
-              --text-secondary: ${d2};
-              --text-muted: ${d2}aa;
-              --accent-primary: ${d2};
-              --accent-secondary: ${d1};
-              --accent-highlight: ${d1};
-              --accent-light: ${d3}44;
-              --tag-bg: ${d2}33;
-              --tag-text: ${d1};
-              --badge-wp: ${d1}35;
-              --badge-wp-text: ${d1};
-              --badge-pub: ${d3}44;
-              --badge-pub-text: ${d2};
-              --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
-              --shadow-md: 0 8px 28px rgba(0, 0, 0, 0.6);
-              --glow-1: ${d2}22;
-              --glow-2: ${d1}22;
-            }
-          `;
-        } else {
-          // Derived Dark Mode when single palette is pasted
-          cssContent += `
-            [data-theme="dark"] {
-              --c1: ${l3};
-              --c2: ${l2};
-              --c3: ${l1};
-              --bg-color: #120a1c;
-              --bg-card: rgba(26, 15, 41, 0.85);
-              --border-color: ${l2}35;
-              --text-primary: #f5f3f7;
-              --text-secondary: ${l2};
-              --text-muted: ${l2}aa;
-              --accent-primary: ${l2};
-              --accent-secondary: ${l3};
-              --accent-highlight: ${l3};
-              --accent-light: ${l1}44;
-              --tag-bg: ${l2}33;
-              --tag-text: ${l2};
-              --badge-wp: ${l2}33;
-              --badge-wp-text: ${l3};
-              --badge-pub: ${l3}22;
-              --badge-pub-text: ${l2};
-              --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
-              --shadow-md: 0 8px 28px rgba(0, 0, 0, 0.6);
-              --glow-1: ${l2}22;
-              --glow-2: ${l3}15;
-            }
-          `;
-        }
-      }
-
-      styleTag.textContent = cssContent;
     } catch (err) {
-      console.warn('Palette parsing notice:', err);
+      console.warn('StyleSheet palette parsing note:', err);
     }
   }
 
@@ -217,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Dynamic Data Loading Engine
   async function loadData() {
     try {
-      await initCoolorsPaletteEngine();
+      initCoolorsPaletteEngine();
 
       const [profileRes, pubRes, cvRes] = await Promise.all([
         fetch('data/profile.json'),
