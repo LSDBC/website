@@ -504,8 +504,8 @@ body {
 }
 
 .filter-btn.active {
-  background-color: var(--dark-amethyst);
-  color: white;
+  background-color: var(--filter-active-bg);
+  color: var(--filter-active-text);
 }
 
 /* Paper Card Item */

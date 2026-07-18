@@ -37,6 +37,10 @@
   --btn-hover-bg: var(--accent-secondary);
   --btn-hover-text: var(--c3-final);
 
+  /* Filter Active State */
+  --filter-active-bg: #000000;
+  --filter-active-text: #ffffff;
+
   --shadow-sm: none;
   --shadow-md: none;
   --glow-1: var(--c2-final);
@@ -75,6 +79,10 @@
   --btn-text: var(--bg-color);
   --btn-hover-bg: var(--accent-secondary);
   --btn-hover-text: var(--bg-color);
+
+  /* Filter Active State */
+  --filter-active-bg: #ffffff;
+  --filter-active-text: #000000;
 
   --shadow-sm: none;
   --shadow-md: none;
