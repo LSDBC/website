@@ -174,20 +174,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Contact info
-    document.getElementById('contactEmail').textContent = profileData.contact.email;
+    const emailBtn = document.getElementById('contactEmail');
+    if (emailBtn) {
+      emailBtn.href = `mailto:${profileData.contact.email}`;
+      emailBtn.innerHTML = `<i class="fa-solid fa-envelope"></i> ${profileData.contact.email}`;
+    }
     const dept = profileData.department || (profileData.positions && profileData.positions[0] ? profileData.positions[0].department : '');
     document.getElementById('contactOffice').textContent = dept ? `${profileData.contact.office}, ${dept}` : profileData.contact.office;
     document.getElementById('contactAddress').textContent = profileData.contact.address;
-
-    // Affiliation Link Pills
-    const affContainer = document.getElementById('affiliationBadges');
-    if (affContainer && profileData.affiliations) {
-      affContainer.innerHTML = profileData.affiliations.map(aff => `
-        <a href="${aff.url}" target="_blank" rel="noopener" class="affiliation-link-badge">
-          <i class="fa-solid fa-graduation-cap"></i> ${aff.name} <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.7em;"></i>
-        </a>
-      `).join('');
-    }
 
     // Research Summary Line
     const researchLine = document.getElementById('researchSummaryLine');
