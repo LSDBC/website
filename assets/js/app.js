@@ -129,7 +129,14 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderProfile() {
     document.getElementById('brandName').textContent = profileData.name;
     document.getElementById('heroName').textContent = profileData.name;
-    document.getElementById('heroRole').textContent = `${profileData.title} @ ${profileData.institution}`;
+    const heroRoleEl = document.getElementById('heroRole');
+    if (heroRoleEl) {
+      if (Array.isArray(profileData.titles)) {
+        heroRoleEl.innerHTML = profileData.titles.map(t => `<div class="hero-role-line">${t}</div>`).join('');
+      } else {
+        heroRoleEl.textContent = `${profileData.title} @ ${profileData.institution}`;
+      }
+    }
     document.getElementById('heroLocation').textContent = profileData.location;
     document.getElementById('footerAuthor').textContent = profileData.name;
     document.getElementById('bioText').textContent = profileData.bio;

@@ -1,9 +1,13 @@
 {
   "name": "Lorenzo Bianchi Chignoli",
+  "titles": [
+    "PhD Candidate in Economics @ Universitat Pompeu Fabra",
+    "Research Intern @ Bank of Italy"
+  ],
   "title": "PhD Candidate in Economics",
-  "institution": "Universitat Pompeu Fabra",
+  "institution": "Universitat Pompeu Fabra & Bank of Italy",
   "department": "Department of Economics and Finance",
-  "location": "Barcelona",
+  "location": "Barcelona / Rome",
   "bio": "I am a PhD Candidate in Economics at Universitat Pompeu Fabra (Barcelona) and a Research Intern at the Bank of Italy.",
   "notebook_url": "https://notebook.bianchichignoli.it/",
   "avatar": "assets/images/profile.jpg",
@@ -20,18 +24,9 @@
     "strava": "https://www.strava.com/athletes/lorenzo_bianchi_chignoli"
   },
   "affiliations": [
-    {
-      "name": "Universitat Pompeu Fabra",
-      "url": "https://www.upf.edu/"
-    },
-    {
-      "name": "Barcelona School of Economics",
-      "url": "https://bse.eu/"
-    },
-    {
-      "name": "Bank of Italy",
-      "url": "https://www.bancaditalia.it/"
-    }
+    { "name": "Universitat Pompeu Fabra", "url": "https://www.upf.edu/" },
+    { "name": "Bank of Italy", "url": "https://www.bancaditalia.it/" },
+    { "name": "Barcelona School of Economics", "url": "https://bse.eu/" }
   ],
   "research_fields": [
     "New Keynesian Theory",
