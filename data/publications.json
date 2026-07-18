@@ -1,45 +1,28 @@
 [
   {
     "id": "wp-2026-01",
-    "title": "Central Bank Communication and Inflation Expectations: High-Frequency Sentiment Extraction",
-    "authors": ["Jane Doe", "Alexander Smith", "Elena Rostova"],
+    "title": "Monetary Policy Transmission in Nonclearing Labor & Capital Markets",
+    "authors": ["Lorenzo Bianchi Chignoli"],
     "type": "working_paper",
     "year": 2026,
-    "status": "Revise & Resubmit, Journal of Monetary Economics",
-    "jel": ["E52", "E58", "C81"],
-    "abstract": "We construct a novel high-frequency sentiment index from central bank monetary policy announcements and press conferences using transformer-based language models. We find that surprise tone shocks significantly anchor long-term inflation expectations, mitigating market volatility following unexpected policy interest rate decisions.",
-    "pdf": "assets/papers/wp_central_bank_sentiment_2026.pdf",
-    "code_repo": "https://github.com/example/central-bank-sentiment",
-    "data_link": "https://doi.org/10.0000/data.sentiment",
-    "bibtex": "@techreport{doe2026sentiment,\n  title={Central Bank Communication and Inflation Expectations: High-Frequency Sentiment Extraction},\n  author={Doe, Jane and Smith, Alexander and Rostova, Elena},\n  year={2026},\n  institution={Central Bank Working Paper Series No. 289}\n}"
+    "status": "Working Paper, Universitat Pompeu Fabra",
+    "jel": ["E52", "E44", "E24"],
+    "abstract": "This paper investigates the supply-side transmission channels of monetary policy when input and labor markets do not instantaneously clear. Using a quantitative New Keynesian framework augmented with market search frictions, I show that interest rate shocks induce asymmetric real wage and price adjustments.",
+    "pdf": "assets/papers/CV_LBC.pdf",
+    "code_repo": "https://github.com/LSDBC",
+    "bibtex": "@techreport{bianchichignoli2026nonclearing,\n  title={Monetary Policy Transmission in Nonclearing Labor & Capital Markets},\n  author={Bianchi Chignoli, Lorenzo},\n  year={2026},\n  institution={Universitat Pompeu Fabra Working Paper}\n}"
   },
   {
-    "id": "pub-2025-01",
-    "title": "Monetary Policy Shocks and Firm Capital Structure: Evidence from Credit Registers",
-    "authors": ["Jane Doe", "Marcus Vance"],
-    "type": "published",
+    "id": "wp-2025-01",
+    "title": "Deep Learning for High-Dimensional Macrofinance and Monetary DSGE Models",
+    "authors": ["Lorenzo Bianchi Chignoli"],
+    "type": "working_paper",
     "year": 2025,
-    "status": "Published",
-    "journal": "Journal of Financial Economics",
-    "volume": "148",
-    "issue": "2",
-    "pages": "103-128",
-    "jel": ["E44", "G32", "G21"],
-    "abstract": "Using granular credit register data covering non-financial corporations over two decades, we analyze how monetary policy shocks transmit heterogeneously across firm leverage profiles. High-leverage firms cut employment twice as fast during monetary tightening cycles.",
-    "pdf": "assets/papers/jfe_monetary_shocks_firm_credit_2025.pdf",
-    "code_repo": "https://github.com/example/monetary-firm-credit",
-    "bibtex": "@article{doe2025monetary,\n  title={Monetary Policy Shocks and Firm Capital Structure: Evidence from Credit Registers},\n  author={Doe, Jane and Vance, Marcus},\n  journal={Journal of Financial Economics},\n  volume={148},\n  number={2},\n  pages={103--128},\n  year={2025}\n}"
-  },
-  {
-    "id": "policy-2025-02",
-    "title": "Assessing Systemic Liquidity Risks in Non-Bank Financial Intermediaries",
-    "authors": ["Jane Doe"],
-    "type": "policy_note",
-    "year": 2025,
-    "status": "Central Bank Financial Stability Bulletin",
-    "jel": ["G23", "G28", "E58"],
-    "abstract": "This policy brief reviews recent stress testing frameworks applied to open-ended money market funds and non-bank financial intermediaries (NBFIs), highlighting policy recommendations for macroprudential oversight.",
-    "pdf": "assets/papers/policy_nbfi_liquidity_2025.pdf",
-    "bibtex": "@article{doe2025systemic,\n  title={Assessing Systemic Liquidity Risks in Non-Bank Financial Intermediaries},\n  author={Doe, Jane},\n  journal={Central Bank Financial Stability Bulletin},\n  year={2025}\n}"
+    "status": "Working Paper",
+    "jel": ["C63", "E37", "G12"],
+    "abstract": "We propose a neural network architecture to solve non-linear dynamic stochastic general equilibrium (DSGE) models with heterogeneous agents and aggregate shocks. The method overcomes the curse of dimensionality and facilitates real-time policy evaluation.",
+    "pdf": "assets/papers/CV_LBC.pdf",
+    "code_repo": "https://github.com/LSDBC",
+    "bibtex": "@techreport{bianchichignoli2025deeplearning,\n  title={Deep Learning for High-Dimensional Macrofinance and Monetary DSGE Models},\n  author={Bianchi Chignoli, Lorenzo},\n  year={2025}\n}"
   }
 ]

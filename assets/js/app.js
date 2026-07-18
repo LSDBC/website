@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const tabPanes = document.querySelectorAll('.tab-pane');
 
   navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
+    link.addEventListener('click', () => {
       const targetTab = link.getAttribute('data-tab');
       
       navLinks.forEach(n => n.classList.remove('active'));
@@ -64,7 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       renderProfile();
       renderPublications(publicationsData);
-      renderPolicyNotes(publicationsData);
       renderCV();
       document.getElementById('currentYear').textContent = new Date().getFullYear();
     } catch (err) {
@@ -104,25 +103,33 @@ document.addEventListener('DOMContentLoaded', () => {
       primaryFieldsList.appendChild(li);
     });
 
-    // Social Links
+    // Social Links (Explicitly excluding Orcid & Scholar per user request)
     const socialLinks = document.getElementById('socialLinks');
     socialLinks.innerHTML = '';
-    const map = [
-      { key: 'google_scholar', icon: 'fa-graduation-cap', title: 'Google Scholar' },
-      { key: 'orcid', icon: 'fa-id-card', title: 'ORCID' },
-      { key: 'github', icon: 'fa-brands fa-github', title: 'GitHub' },
-      { key: 'linkedin', icon: 'fa-brands fa-linkedin', title: 'LinkedIn' },
-      { key: 'twitter', icon: 'fa-brands fa-x-twitter', title: 'Twitter' }
+    
+    const socialMap = [
+      { 
+        key: 'bluesky', 
+        title: 'Bluesky', 
+        svg: `<svg viewBox="0 0 560 500" width="16" height="16" fill="currentColor"><path d="M180 142c-29-57-95-103-146-103C15 39 0 59 0 85c0 62 49 191 146 191 80 0 108-30 134-80 26 50 54 80 134 80 97 0 146-129 146-191 0-26-15-46-34-46-51 0-117 46-146 103-34 68-45 106-60 106s-26-38-60-106z"/></svg>` 
+      },
+      { key: 'github', title: 'GitHub', icon: 'fa-brands fa-github' },
+      { key: 'linkedin', title: 'LinkedIn', icon: 'fa-brands fa-linkedin' },
+      { key: 'ssrn', title: 'SSRN', icon: 'fa-solid fa-graduation-cap' }
     ];
 
-    map.forEach(item => {
-      if (profileData.social[item.key]) {
+    socialMap.forEach(item => {
+      if (profileData.social && profileData.social[item.key]) {
         const a = document.createElement('a');
         a.className = 'social-btn';
         a.href = profileData.social[item.key];
         a.target = '_blank';
         a.title = item.title;
-        a.innerHTML = `<i class="${item.icon}"></i>`;
+        if (item.svg) {
+          a.innerHTML = item.svg;
+        } else {
+          a.innerHTML = `<i class="${item.icon}"></i>`;
+        }
         socialLinks.appendChild(a);
       }
     });
@@ -133,9 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('papersListContainer');
     container.innerHTML = '';
 
-    const academicPapers = papers.filter(p => p.type === 'working_paper' || p.type === 'published');
-
-    const filtered = academicPapers.filter(paper => {
+    const filtered = papers.filter(paper => {
       const matchesType = (filterType === 'all') || (paper.type === filterType);
       const query = searchQuery.toLowerCase();
       const matchesSearch = !query || 
@@ -195,82 +200,76 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Render Policy Notes
-  function renderPolicyNotes(papers) {
-    const container = document.getElementById('policyListContainer');
-    container.innerHTML = '';
-
-    const policyNotes = papers.filter(p => p.type === 'policy_note');
-
-    policyNotes.forEach(paper => {
-      const card = document.createElement('div');
-      card.className = 'paper-card';
-      card.innerHTML = `
-        <div class="paper-header">
-          <div class="paper-title">${paper.title}</div>
-          <span class="paper-type-badge working_paper">${paper.status || 'Policy Brief'}</span>
-        </div>
-        <div class="paper-authors">${paper.authors.join(', ')}</div>
-        <div class="paper-abstract">${paper.abstract}</div>
-        <div class="paper-footer">
-          <div class="paper-jel">${(paper.jel || []).map(j => `<span class="jel-tag">${j}</span>`).join('')}</div>
-          <div class="paper-actions">
-            ${paper.pdf ? `<a href="${paper.pdf}" class="btn btn-outline btn-sm" target="_blank"><i class="fa-solid fa-file-pdf"></i> Download Brief</a>` : ''}
-          </div>
-        </div>
-      `;
-      container.appendChild(card);
-    });
-  }
-
   // Render CV Section
   function renderCV() {
-    // Appointments
+    // Appointments & Positions
     const appContainer = document.getElementById('cvAppointments');
-    appContainer.innerHTML = (cvData.appointments || []).map(item => `
-      <div class="timeline-item">
-        <div class="timeline-period">${item.period}</div>
-        <div class="timeline-title">${item.role}</div>
-        <div class="timeline-institution">${item.institution} — ${item.location}</div>
-      </div>
-    `).join('');
+    if (appContainer) {
+      appContainer.innerHTML = (cvData.appointments || []).map(item => `
+        <div class="timeline-item">
+          <div class="timeline-period">${item.period}</div>
+          <div class="timeline-title">${item.role}</div>
+          <div class="timeline-institution">${item.institution} — ${item.location}</div>
+        </div>
+      `).join('');
+    }
 
     // Education
     const eduContainer = document.getElementById('cvEducation');
-    eduContainer.innerHTML = (cvData.education || []).map(item => `
-      <div class="timeline-item">
-        <div class="timeline-period">${item.year}</div>
-        <div class="timeline-title">${item.degree}</div>
-        <div class="timeline-institution">${item.institution}</div>
-        ${item.details ? `<div style="font-size:0.85rem; color:var(--text-muted); margin-top:0.25rem;">${item.details}</div>` : ''}
-      </div>
-    `).join('');
+    if (eduContainer) {
+      eduContainer.innerHTML = (cvData.education || []).map(item => `
+        <div class="timeline-item">
+          <div class="timeline-period">${item.year}</div>
+          <div class="timeline-title">${item.degree}</div>
+          <div class="timeline-institution">${item.institution}</div>
+          ${item.details ? `<div style="font-size:0.85rem; color:var(--text-muted); margin-top:0.25rem;">${item.details}</div>` : ''}
+        </div>
+      `).join('');
+    }
 
     // Presentations
     const presContainer = document.getElementById('cvPresentations');
-    presContainer.innerHTML = (cvData.presentations || []).map(group => `
-      <div style="margin-bottom:0.85rem;">
-        <strong style="color:var(--accent-secondary);">${group.year}</strong>
-        <ul style="margin-left:1.2rem; margin-top:0.25rem; font-size:0.9rem; color:var(--text-secondary);">
-          ${group.items.map(i => `<li>${i}</li>`).join('')}
-        </ul>
-      </div>
-    `).join('');
+    if (presContainer) {
+      presContainer.innerHTML = (cvData.presentations || []).map(group => `
+        <div style="margin-bottom:0.85rem;">
+          <strong style="color:var(--text-secondary);">${group.year}</strong>
+          <ul style="margin-left:1.2rem; margin-top:0.25rem; font-size:0.9rem; color:var(--text-primary);">
+            ${group.items.map(i => `<li>${i}</li>`).join('')}
+          </ul>
+        </div>
+      `).join('');
+    }
 
-    // Refereeing
-    const refContainer = document.getElementById('cvReferee');
-    refContainer.innerHTML = (cvData.referee_service || []).map(ref => `
-      <span class="tag-item">${ref}</span>
-    `).join('');
+    // Leadership & Service
+    const leadContainer = document.getElementById('cvLeadership');
+    if (leadContainer && cvData.leadership_and_organizing) {
+      leadContainer.innerHTML = (cvData.leadership_and_organizing || []).map(item => `
+        <div class="timeline-item">
+          <div class="timeline-period">${item.period}</div>
+          <div class="timeline-title">${item.role}</div>
+          <div class="timeline-institution">${item.institution}</div>
+        </div>
+      `).join('');
+    }
+
+    // Skills & Languages
+    const skillsContainer = document.getElementById('cvSkills');
+    if (skillsContainer && cvData.skills_and_languages) {
+      const prog = (cvData.skills_and_languages.programming || []).map(s => `<span class="tag-item"><i class="fa-solid fa-code"></i> ${s}</span>`).join('');
+      const lang = (cvData.skills_and_languages.languages || []).map(l => `<span class="tag-item"><i class="fa-solid fa-language"></i> ${l}</span>`).join('');
+      skillsContainer.innerHTML = `<div style="display:flex; flex-wrap:wrap; gap:0.5rem;">${prog}${lang}</div>`;
+    }
 
     // Awards
     const awardContainer = document.getElementById('cvAwards');
-    awardContainer.innerHTML = (cvData.awards || []).map(award => `
-      <div style="margin-bottom:0.65rem;">
-        <strong>${award.title}</strong> (${award.year})
-        <div style="font-size:0.85rem; color:var(--text-muted);">${award.organization}</div>
-      </div>
-    `).join('');
+    if (awardContainer) {
+      awardContainer.innerHTML = (cvData.awards || []).map(award => `
+        <div style="margin-bottom:0.65rem;">
+          <strong style="color:var(--text-primary);">${award.title}</strong> (${award.year})
+          <div style="font-size:0.85rem; color:var(--text-muted);">${award.organization}</div>
+        </div>
+      `).join('');
+    }
   }
 
   // Filter Buttons & Search Listeners
@@ -287,9 +286,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  document.getElementById('paperSearchInput').addEventListener('input', (e) => {
-    renderPublications(publicationsData, currentFilter, e.target.value);
-  });
+  const searchInput = document.getElementById('paperSearchInput');
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      renderPublications(publicationsData, currentFilter, e.target.value);
+    });
+  }
 
   // Modal Functionality
   const modal = document.getElementById('bibtexModal');
@@ -303,29 +305,35 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.setAttribute('aria-hidden', 'false');
   }
 
-  closeBtn.addEventListener('click', () => {
-    modal.classList.remove('active');
-    modal.setAttribute('aria-hidden', 'true');
-  });
-
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
       modal.classList.remove('active');
       modal.setAttribute('aria-hidden', 'true');
-    }
-  });
+    });
+  }
 
-  copyBtn.addEventListener('click', async () => {
-    try {
-      await navigator.clipboard.writeText(bibtexCode.textContent);
-      copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
-      setTimeout(() => {
-        copyBtn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy to Clipboard';
-      }, 2000);
-    } catch (err) {
-      console.error('Failed to copy to clipboard:', err);
-    }
-  });
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+    });
+  }
+
+  if (copyBtn) {
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(bibtexCode.textContent);
+        copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+        setTimeout(() => {
+          copyBtn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy to Clipboard';
+        }, 2000);
+      } catch (err) {
+        console.error('Failed to copy to clipboard:', err);
+      }
+    });
+  }
 
   // Initialize
   loadData();

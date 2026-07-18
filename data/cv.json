@@ -1,71 +1,168 @@
 {
   "appointments": [
     {
-      "role": "Senior Research Economist",
-      "institution": "Central Bank Research Division",
-      "period": "2024 – Present",
-      "location": "Frankfurt / London"
+      "role": "Research Intern",
+      "institution": "Bank of Italy",
+      "period": "2026 – Present",
+      "location": "Rome, Italy"
     },
     {
-      "role": "PhD Research Fellow",
-      "institution": "Department of Economics, University College",
-      "period": "2020 – 2024",
-      "location": "London, UK"
+      "role": "Teaching Assistant (Macroeconomics I & II, Intro to Macro)",
+      "institution": "Universitat Pompeu Fabra",
+      "period": "2025 – Present",
+      "location": "Barcelona, Spain"
+    },
+    {
+      "role": "Visiting Student",
+      "institution": "INET Oxford, Oxford Martin School, University of Oxford",
+      "period": "2024",
+      "location": "Oxford, UK"
+    },
+    {
+      "role": "Visiting Scholar in Financial Modeling",
+      "institution": "New School for Social Research (Supervisor: Clara E. Mattei)",
+      "period": "2024",
+      "location": "New York City, USA"
+    },
+    {
+      "role": "Visiting Student",
+      "institution": "St John’s College, University of Cambridge",
+      "period": "2023",
+      "location": "Cambridge, UK"
     }
   ],
   "education": [
     {
       "degree": "Ph.D. in Economics",
-      "institution": "London School of Economics / University College",
-      "year": "2024",
-      "details": "Dissertation: 'Friction, Sentiment, and Transmission of Monetary Policy'. Committee: Prof. A. Smith, Prof. B. Taylor."
+      "institution": "Universitat Pompeu Fabra",
+      "year": "2024 – Present",
+      "details": "MRes in Economics (2025–2026) & PhD Track at Barcelona School of Economics (2024–2025)."
     },
     {
-      "degree": "M.Sc. in Economics & Finance (Distinction)",
-      "institution": "Bocconi University",
-      "year": "2020"
+      "degree": "M.Sc. in Economics, Int. Development & Economic Policy",
+      "institution": "University of Pavia",
+      "year": "2023 – 2024",
+      "details": "110/110 cum laude. Supervisors: Prof. Guido Ascari, Prof. Susanna Saroyan."
     },
     {
-      "degree": "B.Sc. in Economics & Econometrics",
-      "institution": "University of Mannheim",
-      "year": "2018"
+      "degree": "M.A. in Social Sciences",
+      "institution": "University School of Advanced Studies (IUSS Pavia)",
+      "year": "2023 – 2024",
+      "details": "GPA: 30/30. Supervisor: Prof. Alessandro Caiani."
+    },
+    {
+      "degree": "B.A. in Human Sciences",
+      "institution": "University School of Advanced Studies (IUSS Pavia)",
+      "year": "2019 – 2022",
+      "details": "100/100 cum laude."
+    },
+    {
+      "degree": "B.A. in Philosophy",
+      "institution": "University of Pavia",
+      "year": "2019 – 2022",
+      "details": "110/110 cum laude."
+    },
+    {
+      "degree": "Fellow",
+      "institution": "Ghislieri College, Pavia",
+      "year": "2019 – 2024"
     }
   ],
   "presentations": [
     {
-      "year": 2026,
+      "year": 2023,
       "items": [
-        "NBER Summer Institute (Monetary Economics), Boston",
-        "European Central Bank Research Seminar, Frankfurt",
-        "Bank of England Annual Macro-Conference, London"
+        "International Conference on the Political Economy of Development, FLAME University (Pune, India)",
+        "4th Plurialumn* Meeting, University of Bamberg (Bamberg, Germany)",
+        "Il Fondo Francesco Forte nella Biblioteca del Collegio Ghislieri (Pavia, Italy)",
+        "SWAP Talks, Collegio Ghislieri & St John’s College Cambridge (Pavia, Italy)",
+        "Welcome Address, Inauguration of IUSS School for Advanced Studies, Fraschini Theater (Pavia, Italy)"
       ]
     },
     {
-      "year": 2025,
+      "year": 2022,
       "items": [
-        "American Economic Association (AEA) Annual Meeting, San Francisco",
-        "Journal of Financial Intermediation Conference, Zurich",
-        "Federal Reserve Board Academic Seminar, Washington D.C."
+        "SWAP Talks, Collegio Ghislieri & St John’s College Cambridge (Pavia, Italy)",
+        "Rete di Idee, Scuola Universitaria Superiore di Udine (Udine, Italy)"
       ]
     }
   ],
-  "referee_service": [
-    "Journal of Monetary Economics",
-    "Journal of Finance",
-    "Review of Economic Studies",
-    "Journal of Money, Credit and Banking",
-    "International Journal of Central Banking"
+  "leadership_and_service": [
+    {
+      "role": "Head Librarian",
+      "institution": "Biblioteca del Collegio Ghislieri",
+      "period": "2023 – 2024"
+    },
+    {
+      "role": "Student Representative in Academic Senate",
+      "institution": "IUSS Pavia (1st & 2nd mandate)",
+      "period": "2021 – 2024"
+    },
+    {
+      "role": "President",
+      "institution": "Philosophicum Ghislieri – Società Filosofica Ghisleriana",
+      "period": "2022 – 2023"
+    }
   ],
+  "skills_and_languages": {
+    "programming": ["R (advanced)", "Python (advanced)", "Matlab (intermediate)", "Stata (intermediate)", "LaTeX", "Markdown"],
+    "languages": ["Italian (native)", "English (C2 - IELTS 8.0)", "German (B1)", "Spanish (B1)"]
+  },
   "awards": [
     {
-      "title": "Young Economist Award",
-      "organization": "European Economic Association",
+      "title": "Mortara Scholarship (€54,000)",
+      "organization": "Bank of Italy",
+      "year": "2026"
+    },
+    {
+      "title": "Ermenegildo Zegna Founder’s Scholarship (€7,500)",
+      "organization": "Ermenegildo Zegna Foundation",
       "year": "2024"
     },
     {
-      "title": "Central Bank PhD Fellowship Grant",
-      "organization": "European System of Central Banks",
+      "title": "Premio Giovanni Manera (€5,000)",
+      "organization": "University of Pavia",
+      "year": "2024"
+    },
+    {
+      "title": "IUSS Research Grant (€2,200)",
+      "organization": "IUSS Pavia",
+      "year": "2024"
+    },
+    {
+      "title": "Collegio Ghislieri International Scholarship (€1,500)",
+      "organization": "Ghislieri College",
+      "year": "2024"
+    },
+    {
+      "title": "Seasonal School Merit Award",
+      "organization": "Sant’Anna School for Advanced Studies / Fondazione Il Talento all’Opera",
+      "year": "2023"
+    },
+    {
+      "title": "IUSS Knowledge & Sustainable Growth Research Grant (€3,000)",
+      "organization": "IUSS Pavia",
+      "year": "2023"
+    },
+    {
+      "title": "Rete di Idee XI ed. 2nd Place in Humanities & Premio Bruno Rossini",
+      "organization": "RIASISSU & Fondazione Ghislieri",
+      "year": "2023"
+    },
+    {
+      "title": "Rete di Idee X ed. 1st Place in Social Sciences",
+      "organization": "RIASISSU",
       "year": "2022"
+    },
+    {
+      "title": "JGU Scholarship (€2,200) & Erasmus+ Scholarship (€2,500)",
+      "organization": "DAAD & University of Pavia",
+      "year": "2022"
+    },
+    {
+      "title": "5-Year Full Merit Scholarship",
+      "organization": "University School of Advanced Studies (IUSS Pavia) & Ghislieri College",
+      "year": "2019 – 2024"
     }
   ]
 }

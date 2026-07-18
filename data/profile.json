@@ -1,30 +1,27 @@
 {
-  "name": "Jane Doe, PhD",
-  "title": "Senior Research Economist",
-  "institution": "Central Bank Research Department",
-  "department": "Monetary Policy & Financial Stability Division",
-  "location": "London / Frankfurt",
-  "bio": "I am a PhD Researcher in Economics specializing in monetary policy transmission, macro-finance, and computational text analysis. My current research focuses on central bank communication, inflation dynamics, and high-frequency financial market sentiment.",
+  "name": "Lorenzo Bianchi Chignoli",
+  "title": "PhD Candidate in Economics",
+  "institution": "Universitat Pompeu Fabra & Bank of Italy",
+  "department": "Department of Economics and Finance",
+  "location": "Barcelona / Rome",
+  "bio": "I am a PhD Candidate in Economics at Universitat Pompeu Fabra (Barcelona) and a Research Intern at the Bank of Italy. My research focuses on New Keynesian theory, macrofinance, nonclearing markets, and deep learning for macroeconomics.",
   "avatar": "assets/images/profile.png",
-  "cv_pdf": "assets/papers/CV_Jane_Doe.pdf",
+  "cv_pdf": "assets/papers/CV_LBC.pdf",
   "contact": {
-    "email": "researcher@centralbank.gov",
-    "office": "Room 4.12, Research Building",
-    "address": "123 Financial Avenue, Monetary District"
+    "email": "lorenzo.bianchichignoli@upf.edu",
+    "office": "Campus Ciutadella - Edifici Jaume I (20)",
+    "address": "C. Ramon Trias Fargas, 25-27 | 08005 Barcelona, Spain"
   },
   "social": {
-    "google_scholar": "https://scholar.google.com",
-    "orcid": "https://orcid.org/0000-0000-0000-0000",
-    "github": "https://github.com",
+    "github": "https://github.com/LSDBC",
     "linkedin": "https://linkedin.com",
-    "twitter": "https://x.com",
-    "ssrn": "https://ssrn.com"
+    "bluesky": "https://bsky.app/profile/bianchichignoli.it"
   },
   "research_fields": [
-    "Monetary Economics",
-    "Macro-Finance",
-    "Central Bank Communication",
-    "Financial NLP & Sentiment",
-    "Applied Time Series"
+    "New Keynesian Theory",
+    "Macrofinance",
+    "Monetary Policy Transmission",
+    "Deep Learning in Economics",
+    "Nonclearing Markets"
   ]
 }

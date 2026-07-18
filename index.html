@@ -3,18 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Academic Profile & Research | Central Bank PhD Researcher</title>
-  <meta name="description" content="Personal academic research website, working papers, published articles, and CV of PhD Researcher at Central Bank.">
+  <title>Lorenzo Bianchi Chignoli | PhD Candidate in Economics</title>
+  <meta name="description" content="Personal academic research website, working papers, research agenda, and CV of Lorenzo Bianchi Chignoli, PhD Candidate in Economics at Universitat Pompeu Fabra and Bank of Italy.">
   
-  <!-- Typography -->
+  <!-- Typography: Ubuntu (Sans Serif) & Source Serif 4 / Charter (Serif) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
-  <!-- Custom Stylesheet -->
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="assets/css/palette.css">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -27,14 +28,13 @@
   <header class="navbar-header">
     <div class="container navbar-container">
       <a href="#about" class="nav-brand" id="navBrand">
-        <span class="brand-name" id="brandName">Jane Doe</span>
-        <span class="brand-tag" id="brandTag">PhD Researcher</span>
+        <span class="brand-name" id="brandName">Lorenzo Bianchi Chignoli</span>
+        <span class="brand-tag" id="brandTag">PhD Candidate in Economics</span>
       </a>
 
       <nav class="nav-menu" id="navMenu">
         <button class="nav-link active" data-tab="about"><i class="fa-solid fa-user"></i> About</button>
         <button class="nav-link" data-tab="research"><i class="fa-solid fa-book-bookmark"></i> Research</button>
-        <button class="nav-link" data-tab="policy"><i class="fa-solid fa-landmark"></i> Policy & Notes</button>
         <button class="nav-link" data-tab="cv"><i class="fa-solid fa-file-invoice"></i> CV & Talks</button>
         <button class="nav-link" data-tab="contact"><i class="fa-solid fa-paper-plane"></i> Contact</button>
       </nav>
@@ -55,13 +55,13 @@
     <div class="container hero-container">
       <div class="hero-avatar-wrapper">
         <div class="avatar-placeholder" id="avatarBox">
-          <i class="fa-solid fa-user-tie"></i>
+          <i class="fa-solid fa-user-graduate"></i>
         </div>
       </div>
       <div class="hero-details">
-        <h1 class="hero-name" id="heroName">Jane Doe, PhD</h1>
-        <p class="hero-role" id="heroRole">Senior Research Economist @ Central Bank</p>
-        <p class="hero-location"><i class="fa-solid fa-location-dot"></i> <span id="heroLocation">Frankfurt / London</span></p>
+        <h1 class="hero-name" id="heroName">Lorenzo Bianchi Chignoli</h1>
+        <p class="hero-role" id="heroRole">PhD Candidate in Economics @ UPF & Research Intern @ Bank of Italy</p>
+        <p class="hero-location"><i class="fa-solid fa-location-dot"></i> <span id="heroLocation">Barcelona / Rome</span></p>
         
         <div class="hero-badges" id="fieldBadges">
           <!-- Populated dynamically via JS -->
@@ -95,7 +95,7 @@
         </div>
         <div class="content-card">
           <h3><i class="fa-solid fa-file-pdf"></i> Curriculum Vitae</h3>
-          <p>Download my full academic and professional CV below (PDF format).</p>
+          <p>Download my full curriculum vitae (PDF format).</p>
           <a href="#" id="cvDownloadBtn" class="btn btn-primary" target="_blank">
             <i class="fa-solid fa-download"></i> Download Full CV (PDF)
           </a>
@@ -106,7 +106,7 @@
     <!-- TAB 2: RESEARCH & PUBLICATIONS -->
     <section id="tab-research" class="tab-pane">
       <div class="section-header-bar">
-        <h2>Academic Papers & Research</h2>
+        <h2>Research Papers & Projects</h2>
         <div class="filter-controls">
           <div class="search-box">
             <i class="fa-solid fa-magnifying-glass"></i>
@@ -125,22 +125,11 @@
       </div>
     </section>
 
-    <!-- TAB 3: POLICY & NOTES -->
-    <section id="tab-policy" class="tab-pane">
-      <div class="content-card">
-        <h2>Policy Contributions, Speeches & Bulletins</h2>
-        <p class="section-subtitle">Macroprudential briefings, monetary policy reports, and non-technical policy notes.</p>
-        <div id="policyListContainer" class="papers-list">
-          <!-- Dynamically populated via app.js -->
-        </div>
-      </div>
-    </section>
-
-    <!-- TAB 4: CV & PRESENTATIONS -->
+    <!-- TAB 3: CV & PRESENTATIONS -->
     <section id="tab-cv" class="tab-pane">
       <div class="cv-sections-wrapper">
         <div class="content-card">
-          <h3><i class="fa-solid fa-briefcase"></i> Professional Appointments</h3>
+          <h3><i class="fa-solid fa-briefcase"></i> Current & Past Positions</h3>
           <div id="cvAppointments" class="timeline-list"></div>
         </div>
 
@@ -150,24 +139,29 @@
         </div>
 
         <div class="content-card">
-          <h3><i class="fa-solid fa-microphone"></i> Invited Seminars & Conferences</h3>
+          <h3><i class="fa-solid fa-microphone"></i> Conference Presentations, Workshops & Talks</h3>
           <div id="cvPresentations" class="accordion-list"></div>
+        </div>
+
+        <div class="content-card">
+          <h3><i class="fa-solid fa-users"></i> Leadership & Organizing Experience</h3>
+          <div id="cvLeadership" class="timeline-list"></div>
         </div>
 
         <div class="content-grid-2">
           <div class="content-card">
-            <h3><i class="fa-solid fa-gavel"></i> Refereeing Service</h3>
-            <div id="cvReferee" class="tags-cloud"></div>
+            <h3><i class="fa-solid fa-code"></i> Skills & Languages</h3>
+            <div id="cvSkills" class="tags-cloud"></div>
           </div>
           <div class="content-card">
-            <h3><i class="fa-solid fa-award"></i> Awards & Fellowships</h3>
+            <h3><i class="fa-solid fa-award"></i> Awards, Grants & Scholarships</h3>
             <div id="cvAwards" class="awards-list"></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- TAB 5: CONTACT -->
+    <!-- TAB 4: CONTACT -->
     <section id="tab-contact" class="tab-pane">
       <div class="content-card contact-card">
         <h2>Contact Information</h2>
@@ -176,21 +170,21 @@
             <i class="fa-solid fa-envelope"></i>
             <div>
               <strong>Email</strong>
-              <p id="contactEmail">researcher@centralbank.gov</p>
+              <p id="contactEmail">lorenzo.bianchichignoli@upf.edu</p>
             </div>
           </div>
           <div class="contact-item">
             <i class="fa-solid fa-building-columns"></i>
             <div>
-              <strong>Office & Division</strong>
-              <p id="contactOffice">Monetary Policy Research Division</p>
+              <strong>Office & Department</strong>
+              <p id="contactOffice">Campus Ciutadella - Edifici Jaume I (20)</p>
             </div>
           </div>
           <div class="contact-item">
             <i class="fa-solid fa-map-pin"></i>
             <div>
-              <strong>Mailing Address</strong>
-              <p id="contactAddress">Central Bank Headquarters</p>
+              <strong>Address</strong>
+              <p id="contactAddress">C. Ramon Trias Fargas, 25-27 | 08005 Barcelona, Spain</p>
             </div>
           </div>
         </div>
@@ -218,8 +212,7 @@
   <!-- Global Footer -->
   <footer class="site-footer">
     <div class="container footer-container">
-      <p>&copy; <span id="currentYear"></span> <span id="footerAuthor">Jane Doe</span>. Powered by Data-Driven AI Architecture.</p>
-      <p class="footer-subtext">The views expressed on this website are solely those of the author and do not necessarily reflect the official position of the Central Bank.</p>
+      <p>&copy; <span id="currentYear"></span> <span id="footerAuthor">Lorenzo Bianchi Chignoli</span>. All rights reserved.</p>
     </div>
   </footer>
 
