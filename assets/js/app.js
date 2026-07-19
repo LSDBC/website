@@ -331,7 +331,13 @@ document.addEventListener('DOMContentLoaded', () => {
         <div style="margin-bottom:0.85rem;">
           <strong style="color:var(--text-secondary);">${group.year}</strong>
           <ul style="margin-left:1.2rem; margin-top:0.25rem; font-size:0.9rem; color:var(--text-primary);">
-            ${group.items.map(i => `<li>${i}</li>`).join('')}
+            ${group.items.map(item => {
+              if (typeof item === 'object' && item !== null && item.url) {
+                return `<li><a href="${item.url}" target="_blank" rel="noopener noreferrer">${item.title}</a></li>`;
+              }
+              const text = typeof item === 'object' ? item.title : item;
+              return `<li>${text}</li>`;
+            }).join('')}
           </ul>
         </div>
       `).join('');
