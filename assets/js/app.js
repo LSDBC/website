@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function updateThemeIcon(theme) {
-    themeToggleBtn.innerHTML = theme === 'dark' 
-      ? '<i class="fa-solid fa-sun"></i>' 
+    themeToggleBtn.innerHTML = theme === 'dark'
+      ? '<i class="fa-solid fa-sun"></i>'
       : '<i class="fa-solid fa-moon"></i>';
   }
 
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
       const targetTab = link.getAttribute('data-tab');
-      
+
       navLinks.forEach(n => n.classList.remove('active'));
       tabPanes.forEach(p => p.classList.remove('active'));
 
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       navLinks.forEach(n => n.classList.remove('active'));
       tabPanes.forEach(p => p.classList.remove('active'));
-      
+
       const aboutPane = document.getElementById('tab-about');
       if (aboutPane) aboutPane.classList.add('active');
       if (navMenu) navMenu.classList.remove('open');
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroRoleContainer = document.getElementById('heroRole');
     const heroLocationContainer = document.getElementById('heroLocation');
     if (profileData.positions && profileData.positions.length > 0) {
-      heroRoleContainer.innerHTML = profileData.positions.map(p => 
+      heroRoleContainer.innerHTML = profileData.positions.map(p =>
         `<div class="hero-role-item">${p.title} @ <strong>${p.institution}</strong> <span class="hero-role-location"><i class="fa-solid fa-location-dot"></i> ${p.location}</span></div>`
       ).join('');
       if (heroLocationContainer) heroLocationContainer.style.display = 'none';
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('footerAuthor').textContent = profileData.name;
     document.getElementById('bioText').innerHTML = profileData.bio;
-    
+
     const cvBtn = document.getElementById('cvDownloadBtn');
     if (cvBtn) cvBtn.href = profileData.cv_pdf || '#';
 
@@ -197,19 +197,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const socialLinks = document.getElementById('socialLinks');
     if (socialLinks) {
       socialLinks.innerHTML = '';
-      
+
       const socialMap = [
-        { 
-          key: 'bluesky', 
-          title: 'Bluesky', 
-          svg: `<svg viewBox="0 0 16 16" width="17" height="17" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M3.468 1.948C5.303 3.325 7.276 6.118 8 7.616c.725-1.498 2.698-4.29 4.532-5.668C13.855.955 16 .186 16 2.632c0 .489-.28 4.105-.444 4.692-.572 2.04-2.653 2.561-4.504 2.246 3.236.551 4.06 2.375 2.281 4.2-3.376 3.464-4.852-.87-5.23-1.98-.07-.204-.103-.3-.103-.218 0-.081-.033.014-.102.218-.379 1.11-1.855 5.444-5.231 1.98-1.778-1.825-.955-3.65 2.28-4.2-1.85.315-3.932-.205-4.503-2.246C.28 6.737 0 3.12 0 2.632 0 .186 2.145.955 3.468 1.948"/></svg>` 
+        {
+          key: 'bluesky',
+          title: 'Bluesky',
+          svg: `<svg viewBox="0 0 16 16" width="17" height="17" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M3.468 1.948C5.303 3.325 7.276 6.118 8 7.616c.725-1.498 2.698-4.29 4.532-5.668C13.855.955 16 .186 16 2.632c0 .489-.28 4.105-.444 4.692-.572 2.04-2.653 2.561-4.504 2.246 3.236.551 4.06 2.375 2.281 4.2-3.376 3.464-4.852-.87-5.23-1.98-.07-.204-.103-.3-.103-.218 0-.081-.033.014-.102.218-.379 1.11-1.855 5.444-5.231 1.98-1.778-1.825-.955-3.65 2.28-4.2-1.85.315-3.932-.205-4.503-2.246C.28 6.737 0 3.12 0 2.632 0 .186 2.145.955 3.468 1.948"/></svg>`
         },
         { key: 'github', title: 'GitHub', icon: 'fa-brands fa-github' },
         { key: 'linkedin', title: 'LinkedIn', icon: 'fa-brands fa-linkedin' },
-        { 
-          key: 'strava', 
-          title: 'Strava', 
-          svg: `<svg role="img" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7.924 15.65h4.172"/></svg>` 
+        {
+          key: 'strava',
+          title: 'Strava',
+          svg: `<svg role="img" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7.924 15.65h4.172"/></svg>`
         }
       ];
 
@@ -240,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const filtered = papers.filter(paper => {
       const matchesType = (filterType === 'all') || (paper.type === filterType);
       const query = searchQuery.toLowerCase();
-      const matchesSearch = !query || 
+      const matchesSearch = !query ||
         paper.title.toLowerCase().includes(query) ||
         paper.authors.some(a => a.toLowerCase().includes(query)) ||
         paper.abstract.toLowerCase().includes(query);
@@ -256,13 +256,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const card = document.createElement('div');
       card.className = 'paper-card';
 
-      const statusBadge = paper.type === 'published' 
+      const statusBadge = paper.type === 'published'
         ? `<span class="paper-type-badge published">Published</span>`
         : `<span class="paper-type-badge working_paper">Working Paper</span>`;
 
       const jelTags = (paper.jel || []).map(j => `<span class="jel-tag">${j}</span>`).join('');
-      const journalText = paper.journal 
-        ? `${paper.journal} (${paper.year})` 
+      const journalText = paper.journal
+        ? `${paper.journal} (${paper.year})`
         : (paper.status || `Working Paper ${paper.year}`);
 
       card.innerHTML = `
@@ -332,12 +332,12 @@ document.addEventListener('DOMContentLoaded', () => {
           <strong style="color:var(--text-secondary);">${group.year}</strong>
           <ul style="margin-left:1.2rem; margin-top:0.25rem; font-size:0.9rem; color:var(--text-primary);">
             ${group.items.map(item => {
-              if (typeof item === 'object' && item !== null && item.url) {
-                return `<li><a href="${item.url}" target="_blank" rel="noopener noreferrer">${item.title}</a></li>`;
-              }
-              const text = typeof item === 'object' ? item.title : item;
-              return `<li>${text}</li>`;
-            }).join('')}
+        if (typeof item === 'object' && item !== null && item.url) {
+          return `<li><a href="${item.url}" target="_blank" rel="noopener noreferrer">${item.title}</a></li>`;
+        }
+        const text = typeof item === 'object' ? item.title : item;
+        return `<li>${text}</li>`;
+      }).join('')}
           </ul>
         </div>
       `).join('');
