@@ -670,6 +670,16 @@ body {
   border: 1px solid var(--border-color);
 }
 
+#cvPresentations a {
+  color: var(--text-primary);
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+#cvPresentations a:hover {
+  color: var(--text-secondary);
+}
+
 /* Contact Page Grid */
 .contact-details-grid {
   display: grid;

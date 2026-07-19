@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     document.getElementById('footerAuthor').textContent = profileData.name;
-    document.getElementById('bioText').textContent = profileData.bio;
+    document.getElementById('bioText').innerHTML = profileData.bio;
     
     const cvBtn = document.getElementById('cvDownloadBtn');
     if (cvBtn) cvBtn.href = profileData.cv_pdf || '#';
