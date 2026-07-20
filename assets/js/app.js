@@ -347,7 +347,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (skillsContainer && cvData.skills_and_languages) {
       const prog = (cvData.skills_and_languages.programming || []).map(s => `<span class="tag-item"><i class="fa-solid fa-code"></i> ${s}</span>`).join('');
       const lang = (cvData.skills_and_languages.languages || []).map(l => `<span class="tag-item"><i class="fa-solid fa-language"></i> ${l}</span>`).join('');
-      skillsContainer.innerHTML = `<div style="display:flex; flex-wrap:wrap; gap:0.5rem;">${prog}${lang}</div>`;
+      skillsContainer.innerHTML = `
+        <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom: 1.25rem;">${prog}</div>
+        <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">${lang}</div>
+      `;
     }
 
     // Awards
