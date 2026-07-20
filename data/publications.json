@@ -16,6 +16,18 @@
     ],
     "abstract": "The theoretical behavior of aggregate markups in New Keynesian models is partly at odds with their observed cyclicality in the data, so that their explanatory power relies extensively on exogenous markup shocks. To reconcile theoretical predictions and empirical evidence, I develop a `New Old Keynesian' model. This New Keynesian adaptation of the Barro-Grossman model of rationing-through-nominal-rigidities allows fixprice firms to ration excess demand when high marginal costs erode profitability. Rationing induces a forced reallocation of expenditure toward high-margin sectors, generating a first-order welfare loss from price dispersion. I contend that rationing has the potential to improve the New Keynesian model from a business cycle accounting perspective. By approximating the policy functions with a deep neural network, I demonstrate that markups can be countercyclical with respect to welfare-relevant output while appearing procyclical with respect to measured output, as rationing induces a decoupling between the two. I suggest an empirical test to estimate the extent of rationing through micro data on sales. Last, I consider the labor wedge as microfounded by rationing, and extend the model to non-homothetic utility with preference for quality.",
     "pdf": "assets/papers/2026_mres.pdf",
-    "bibtex": "@misc{2026_chignoli, author = {Bianchi Chignoli, Lorenzo}, title = { title = {A New Old Keynesian Model}, howpublished = {MRes, Universitat Pompeu Fabra}, year = {2026}, month = {07} }"
+    "bibtex": [
+      "@mastersthesis{2026_mres,",
+      "  author  = \"Bianchi-Chignoli, Lorenzo\",",
+      "  title   = \"A New Old Keynesian Model\",",
+      "  school  = \"Universitat Pompeu Fabra\",",
+      "  year    = \"2026\",",
+      "  type    = \"MRes\",",
+      "  address = \"\",",
+      "  month   = \"07\",",
+      "  note    = \"Advisor: Jordi Galí. Reader: Jan Eeckhout\",",
+      "  annote  = \"Submitted: April 2026. Presented: July 2026.\"",
+      "}"
+    ]
   }
 ]

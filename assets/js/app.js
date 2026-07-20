@@ -390,7 +390,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const copyBtn = document.getElementById('copyBibtexBtn');
 
   function openBibtexModal(code) {
-    bibtexCode.textContent = code;
+    bibtexCode.textContent = Array.isArray(code) ? code.join('\n') : code;
     modal.classList.add('active');
     modal.setAttribute('aria-hidden', 'false');
   }
