@@ -119,7 +119,7 @@ body {
 }
 
 .nav-link:hover {
-  color: var(--accent-secondary);
+  color: var(--tag-text);
   background-color: var(--tag-bg);
 }
 
