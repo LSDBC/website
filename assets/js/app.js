@@ -158,7 +158,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     document.getElementById('footerAuthor').textContent = profileData.name;
-    document.getElementById('bioText').innerHTML = profileData.bio;
+
+    const bioContainer = document.getElementById('bioText');
+    if (bioContainer && profileData.bio) {
+      if (Array.isArray(profileData.bio)) {
+        bioContainer.innerHTML = profileData.bio
+          .map(block => {
+            if (typeof block === 'object' && block !== null) {
+              const titleHtml = block.title ? `<h3>${block.title}</h3>` : '';
+              return `<div class="research-agenda-box">${titleHtml}<p>${block.text}</p></div>`;
+            } else if (typeof block === 'string') {
+              return `<p>${block.trim()}</p>`;
+            }
+            return '';
+          })
+          .join('');
+      } else if (typeof profileData.bio === 'string') {
+        bioContainer.innerHTML = profileData.bio
+          .split(/\n\s*\n/)
+          .map(block => `<p>${block.trim()}</p>`)
+          .join('');
+      }
+    }
 
     const cvBtn = document.getElementById('cvDownloadBtn');
     if (cvBtn) cvBtn.href = profileData.cv_pdf || '#';

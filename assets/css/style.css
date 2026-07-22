@@ -286,22 +286,42 @@ body {
   line-height: 1.5;
 }
 
+.research-agenda-box,
 .notebook-callout-box {
-  margin-top: 1.5rem;
-  padding: 1.1rem 1.35rem;
+  margin: 1.5rem 0;
+  padding: 1.25rem 1.5rem;
   border-radius: 0.5rem;
   background-color: var(--tag-bg);
   border-left: 4px solid var(--accent-primary);
   font-size: 0.98rem;
   color: var(--tag-text);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
+.content-card .research-agenda-box h3,
+.research-agenda-box h3 {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--tag-text) !important;
+  margin-bottom: 0.5rem;
+}
+
+.research-agenda-box p {
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--tag-text);
+  margin-bottom: 0 !important;
+}
+
+.research-agenda-box a,
 .notebook-callout-box a {
   color: var(--tag-text);
   font-weight: 700;
   text-decoration: underline;
 }
 
+.research-agenda-box a:hover,
 .notebook-callout-box a:hover {
   opacity: 0.85;
 }
@@ -383,7 +403,16 @@ body {
   font-size: 1.05rem;
   line-height: 1.75;
   color: var(--text-primary);
-  white-space: pre-wrap;
+}
+
+.bio-text > p {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+.bio-text > p:last-child {
+  margin-bottom: 0;
 }
 
 .content-grid-2 {

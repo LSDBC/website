@@ -14,7 +14,16 @@
       "location": "Rome"
     }
   ],
-  "bio": "I am a PhD Candidate in Economics at <strong>Universitat Pompeu Fabra</strong> and <strong>Barcelona School of Economics</strong>, and a Research Intern at the <strong>Bank of Italy</strong> (Monetary Policy Strategy, Economic Outlook and Monetary Policy Directorate). I work on Macroeconomics, in particular New Keynesian theory, macrofinance, and monetary policy transmission, and I often solve my models with deep nerual networks. \n\nI earned my degree in Economics at the <strong>University of Pavia</strong> as a <strong>Ghislieri College</strong> Fellow and <strong>IUSS Scholar</strong>. Outside of academia, I run, make music, and prove you need not be good at chess to enjoy it.",
+  "bio": [
+    "I am a PhD Candidate in Economics at <strong>Universitat Pompeu Fabra</strong> and <strong>Barcelona School of Economics</strong>, and a Research Intern at the <strong>Bank of Italy</strong> (Monetary Policy Strategy, Economic Outlook and Monetary Policy Directorate). I work on Macroeconomics, in particular New Keynesian theory, macrofinance, and monetary policy transmission, and I often solve my models with deep nerual networks.",
+    {
+      "type": "highlight",
+      "title": "Research Agenda",
+      "text": "My research agenda focuses on the <strong>supply-side transmission of monetary policy</strong>. I tackle this through a New Keynesian and New Monetarist perspective: modeling goods and credit markets with real rigidities, where quantity rationing is crucial for equilibrium, and such that non-Walrasian market clearing can occur."
+    },
+    "I earned my degree in Economics at the <strong>University of Pavia</strong> as a <strong>Ghislieri College</strong> Fellow and <strong>IUSS Scholar</strong>. Outside of academia, I run, make music, and prove you need not be good at chess to enjoy it.",
+    "I also publish some lecture notes and materials from my PhD courses on my <a href=\"https://notebook.bianchichignoli.it/\" target=\"_blank\" rel=\"noopener\">Economics Notebook</a>!"
+  ],
   "notebook_url": "https://notebook.bianchichignoli.it/",
   "avatar": "assets/images/profile.jpg",
   "cv_pdf": "assets/papers/CV_LBC.pdf",
